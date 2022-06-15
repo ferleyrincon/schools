@@ -18,4 +18,8 @@ class Results(Page):
     pass
 
 
-page_sequence = [consent, ResultsWaitPage, Results]
+class bievenida(Page):
+    pass
+
+
+page_sequence = [consent, bienvenida]
