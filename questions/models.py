@@ -25,7 +25,6 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
     fixed_payoff = c(10000)
-    task_payoff = random.randint(1,3)
 
 
 class Subsession(BaseSubsession):
