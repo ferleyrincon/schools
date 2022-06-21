@@ -1,12 +1,26 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
+{% block scripts %}
+    <!-- custom style sheet-->
+    <link href="{% static 'css/schools.css' %}" rel="stylesheet">
+    <script src="{% static 'js/schools.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            formulario = document.getElementById("form");
+        });
 
-{% block title %}
+        // Función para pasar a la siguiente pantalla
+        function next_screen(){
+            formulario.submit();
+        };
+    </script>
 {% endblock %}
 
 {% block content %}
 <img src= "{% static '2. sigue.PNG' %}"
-alt="2.sigue">
+alt="2.sigue" class="img_width_all">
+
+<input type="button" class="hidden_button" onclick="next_screen()">
 
     {% next_button %}
 
