@@ -1,11 +1,110 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
+{% block scripts %}
+    <!-- custom style sheet-->
+    <link href="{% static 'css/schools.css' %}" rel="stylesheet">
+    <script src="{% static 'js/schools.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            formulario = document.getElementById("form");
+        });
 
-{% block title %}
-    ¿Te gustaría seguir los pasos de cuál de estos personajes?
+        // Función para pasar a la siguiente pantalla
+        function next_screen(){
+            document.getElementById("mi_mundo_3").value = elecciones.toString();
+            formulario.submit();
+        };
+
+        var cnt_eleccion = 0;
+        var elecciones = [];
+
+        $(function () {
+            $('.select_button').click(function () {
+                var value = $(this).attr('name');
+                var id = $(this).attr('id');
+                if(value == "0") {
+                    if(cnt_eleccion < 3) {
+                        cnt_eleccion += 1;
+                        document.getElementById(id).className += " select_button_active";
+                        document.getElementById(id).name = "1";
+                        elecciones.push(id);
+                    }
+                } else {
+                    cnt_eleccion -= 1;
+                    document.getElementById(id).className = "select_button";
+                    document.getElementById(id).name = "0";
+                    for(var i = 0; i < elecciones.length; i++){ 
+                        if (elecciones[i] == id) { 
+                            elecciones.splice(i, 1); 
+                        }
+                    }
+                }
+                console.log("Elecciones", elecciones);
+            });
+        });
+    </script>
+    <style>
+    .hidden_button {  
+        left: 485px;
+        top: 1466px;
+        width: 412px;
+        height: 72px;
+    }
+
+    #opt01 {
+        left: 99px;
+        top: 510px;
+    }
+
+    #opt02 {
+        left: 296px;
+        top: 510px;
+    }
+
+    #opt03 {
+        left: 497px;
+        top: 510px;
+    }
+
+    #opt04 {
+        left: 695px;
+        top: 510px;
+    }
+
+    #opt05 {
+        left: 894px;
+        top: 510px;
+    }
+
+    #opt06 {
+        left: 1093px;
+        top: 510px;
+    }
+    </style>
 {% endblock %}
 
 {% block content %}
+<div class="container_body">
+<img src= "{% static 'img/7. mi_mundo3.png' %}" alt="mi mundo 3" class="img_width_all">
+
+<input type="button" class="select_button" id="opt01" name="0">
+
+<input type="button" class="select_button" id="opt02" name="0">
+
+<input type="button" class="select_button" id="opt03" name="0">
+
+<input type="button" class="select_button" id="opt04" name="0">
+
+<input type="button" class="select_button" id="opt05" name="0">
+
+<input type="button" class="select_button" id="opt06" name="0">
+
+<input type="button" class="hidden_button" onclick="next_screen()">
+
+
+<input type="hidden" class="variable" name="mi_mundo_3" id="mi_mundo_3">
+
+</div>
 
     {% next_button %}
 

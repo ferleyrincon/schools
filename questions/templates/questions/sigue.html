@@ -14,11 +14,18 @@
             formulario.submit();
         };
     </script>
+    <style>
+    .hidden_button {  
+        left: 55vw;
+        top: 53vh;
+        width: 20vw;
+        height: 10vh;
+    }
+    </style>
 {% endblock %}
 
 {% block content %}
-<img src= "{% static '2. sigue.PNG' %}"
-alt="2.sigue" class="img_width_all">
+<img src= "{% static 'img/2. sigue.PNG' %}" alt="2.sigue" class="img_width_all">
 
 <input type="button" class="hidden_button" onclick="next_screen()">
 
