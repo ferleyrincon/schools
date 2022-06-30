@@ -1,11 +1,121 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
+{% block scripts %}
+    <!-- custom style sheet-->
+    <link href="{% static 'css/schools.css' %}" rel="stylesheet">
+    <script src="{% static 'js/schools.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            formulario = document.getElementById("form");
+        });
 
-{% block title %}
-    Trabajaría en un lugar en el que las actividades cotidianas estuvieran relacionadas con…
+        // Función para pasar a la siguiente pantalla
+        function next_screen(){
+            document.getElementById("mundo_trabajo8").value = elecciones.toString();
+            formulario.submit();
+        };
+
+        var cnt_eleccion = 0;
+        var elecciones = [];
+
+        $(function () {
+            $('.select_button').click(function () {
+                var value = $(this).attr('name');
+                var id = $(this).attr('id');
+                if(value == "0") {
+                    if(cnt_eleccion < 2) {
+                        cnt_eleccion += 1;
+                        document.getElementById(id).className += " select_button_active";
+                        document.getElementById(id).name = "1";
+                        elecciones.push(id);
+                    }
+                } else {
+                    cnt_eleccion -= 1;
+                    document.getElementById(id).className = "select_button";
+                    document.getElementById(id).name = "0";
+                    for(var i = 0; i < elecciones.length; i++){ 
+                        if (elecciones[i] == id) { 
+                            elecciones.splice(i, 1); 
+                        }
+                    }
+                }
+                console.log("Elecciones", elecciones);
+            });
+        });
+    </script>
+    <style>
+    .hidden_button {  
+        left: 312px;
+        top: 300px;
+        width: 277px;
+        height: 47px;
+    }
+
+    #opt01 {
+        left: 312px;
+        top: 355px;
+        width: 142px;
+        height: 137px;
+    }
+
+    #opt02 {
+        left: 482px;
+        top: 355px;
+        width: 142px;
+        height: 137px;
+    }
+
+    #opt03 {
+        left: 652px;
+        top: 355px;
+        width: 142px;
+        height: 137px;;
+    }
+
+    #opt04 {
+        left: 312px;
+        top: 548px;
+        width: 142px;
+        height: 137px;
+    }
+
+    #opt05 {
+        left: 482px;
+        top: 548px;
+        width: 142px;
+        height: 137px;
+    }
+
+    #opt06 {
+        left: 652px;
+        top: 548px;
+        width: 142px;
+        height: 137px;
+    }
+
+    </style>
 {% endblock %}
 
 {% block content %}
+<div class="container_body">
+<img src= "{% static 'img/17. mundo_trabajo8.png' %}" alt="mundo_trabajo8" class="img_width_all">
+
+<input type="button" class="select_button" id="opt01" name="0">
+
+<input type="button" class="select_button" id="opt02" name="0">
+
+<input type="button" class="select_button" id="opt03" name="0">
+
+<input type="button" class="select_button" id="opt04" name="0">
+
+<input type="button" class="select_button" id="opt05" name="0">
+
+<input type="button" class="select_button" id="opt06" name="0">
+
+
+<input type="hidden" class="variable" name="mundo_trabajo8" id="mundo_trabajo8">
+
+</div>
 
     {% next_button %}
 

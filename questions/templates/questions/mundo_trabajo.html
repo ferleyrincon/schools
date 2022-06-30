@@ -1,12 +1,36 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
+{% block scripts %}
+    <!-- custom style sheet-->
+    <link href="{% static 'css/schools.css' %}" rel="stylesheet">
+    <script src="{% static 'js/schools.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            formulario = document.getElementById("form");
+        });
 
-{% block title %}
-    Mundo del trabajo
+        // Función para pasar a la siguiente pantalla
+        function next_screen(){
+            formulario.submit();
+        };
+    </script>
+    <style>
+    .hidden_button {  
+        left: 572px;
+        top: 368px;
+        width: 256px;
+        height: 50px;
+    }
+    </style>
 {% endblock %}
 
 {% block content %}
+<img src= "{% static 'img/9. mundo_trabajo.PNG' %}" alt="9.mundo_trabajo" class="img_width_all">
+
+<input type="button" class="hidden_button" onclick="next_screen()">
 
     {% next_button %}
 
 {% endblock %}
+
+
