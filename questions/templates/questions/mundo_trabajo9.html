@@ -1,12 +1,107 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
+{% block scripts %}
+    <!-- custom style sheet-->
+    <link href="{% static 'css/schools.css' %}" rel="stylesheet">
+    <script src="{% static 'js/schools.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            formulario = document.getElementById("form");
+        });
 
-{% block title %}
-    Me gustaría un trabajo que se centrara en…
+        // Función para pasar a la siguiente pantalla
+        function next_screen(){
+            //document.getElementById("").value = elecciones.toString();
+            formulario.submit();
+        };
+
+        var cnt_eleccion = 0;
+        var elecciones = [];
+
+        $(function () {
+            $('.select_button').click(function () {
+                var value = $(this).attr('name');
+                var id = $(this).attr('id');
+                if(value == "0") {
+                    if(cnt_eleccion < 1) {
+                        cnt_eleccion += 1;
+                        document.getElementById(id).className += " select_button_active";
+                        document.getElementById(id).name = "1";
+                        elecciones.push(id);
+                    }
+                } else {
+                    cnt_eleccion -= 1;
+                    document.getElementById(id).className = "select_button";
+                    document.getElementById(id).name = "0";
+                    for(var i = 0; i < elecciones.length; i++){ 
+                        if (elecciones[i] == id) { 
+                            elecciones.splice(i, 1); 
+                        }
+                    }
+                }
+                console.log("Elecciones", elecciones);
+            });
+        });
+    </script>
+    <style>
+    .hidden_button {  
+        left: 290px;
+        top: 716px;
+        width: 280px;
+        height: 47px;
+    }
+
+    #opt01 {
+        left: 313px;
+        top: 333px;
+        width: 225px;
+        height: 142px;
+    }
+
+    #opt02 {
+        left: 566px;
+        top: 333px;
+        width: 225px;
+        height: 142px;
+    }
+
+    #opt03 {
+        left: 313px;
+        top: 527px;
+        width: 225px;
+        height: 142px
+    }
+
+    #opt04 {
+        left: 566px;
+        top: 527px;
+        width: 225px;
+        height: 142px
+    }
+
+
+</style>
 {% endblock %}
 
 {% block content %}
+<div class="container_body">
+<img src= "{% static 'img/18. mundo_trabajo9.png' %}" alt="18.mundo_trabajo9" class="img_width_all">
 
-    {% next_button %}
+<input type="button" class="select_button" id="opt01" name="0">
+
+<input type="button" class="select_button" id="opt02" name="0">
+
+<input type="button" class="select_button" id="opt03" name="0">
+
+<input type="button" class="select_button" id="opt04" name="0">
+
+
+<input type="button" class="hidden_button" onclick="next_screen()">
+
+
+<input type="hidden" class="variable" name="mundo_trabajo9" id="mundo_trabajo9">
+
+</div>
+{% next_button %}
 
 {% endblock %}
