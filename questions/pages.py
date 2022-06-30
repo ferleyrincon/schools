@@ -111,5 +111,5 @@ class thanks(Page):
 #                mundo_formacion, mundo_formacion1, mundo_formacion2, mundo_formacion3, mundo_formacion4, mundo_formacion5, mundo_formacion5, mundo_formacion7,
 #                thanks]
 
-page_sequence = [consent, ingresar, sigue, mi_mundo , mi_mundo1 , mi_mundo2, mi_mundo3]
+page_sequence = [consent, ingresar, sigue, mi_mundo , mi_mundo1 , mi_mundo2, mi_mundo3, mi_mundo4]
 
