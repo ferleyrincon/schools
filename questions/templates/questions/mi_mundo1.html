@@ -11,7 +11,7 @@
 
         // Función para pasar a la siguiente pantalla
         function next_screen(){
-            document.getElementById("mi_mundo_3").value = elecciones.toString();
+            //document.getElementById("mi_mundo_1").value = elecciones.toString();
             formulario.submit();
         };
 
@@ -87,8 +87,9 @@
 </style>
 {% endblock %}
 
+{% block content %}
 <div class="container_body">
-<img src= "{% static 'img/5. mi_mundo1.png' %}" alt="mi mundo 3" class="img_width_all">
+<img src= "{% static 'img/5. mi_mundo1.png' %}" alt="mi mundo 1" class="img_width_all">
 
 <input type="button" class="select_button" id="opt01" name="0">
 
@@ -102,4 +103,7 @@
 
 <input type="button" class="select_button" id="opt06" name="0">
 
-</style>
+</div>
+{% next_button %}
+
+{% endblock %}
