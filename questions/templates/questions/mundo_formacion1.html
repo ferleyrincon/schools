@@ -1,12 +1,143 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
+{% block scripts %}
+    <!-- custom style sheet-->
+    <link href="{% static 'css/schools.css' %}" rel="stylesheet">
+    <script src="{% static 'js/schools.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            formulario = document.getElementById("form");
+        });
 
-{% block title %}
-    ¿Cuáles son las materias que te gustan MÁS?
+        // Función para pasar a la siguiente pantalla
+        function next_screen(){
+            //document.getElementById("").value = elecciones.toString();
+            formulario.submit();
+        };
+
+        var cnt_eleccion = 0;
+        var elecciones = [];
+
+        $(function () {
+            $('.select_button').click(function () {
+                var value = $(this).attr('name');
+                var id = $(this).attr('id');
+                if(value == "0") {
+                    if(cnt_eleccion < 1) {
+                        cnt_eleccion += 1;
+                        document.getElementById(id).className += " select_button_active";
+                        document.getElementById(id).name = "1";
+                        elecciones.push(id);
+                    }
+                } else {
+                    cnt_eleccion -= 1;
+                    document.getElementById(id).className = "select_button";
+                    document.getElementById(id).name = "0";
+                    for(var i = 0; i < elecciones.length; i++){ 
+                        if (elecciones[i] == id) { 
+                            elecciones.splice(i, 1); 
+                        }
+                    }
+                }
+                console.log("Elecciones", elecciones);
+            });
+        });
+    </script>
+    <style>
+    .hidden_button {  
+        left: 445px;
+        top: 1007px;
+        width: 495px;
+        height: 70px;
+    }
+
+    #opt01 {
+        left: 110px;
+        top: 510px;
+        width: 240px;
+        height: 205px;
+    }
+
+    #opt02 {
+        left: 410px;
+        top: 510px;
+        width: 240px;
+        height: 205px;
+    }
+
+    #opt03 {
+        left: 715px;
+        top: 510px;
+        width: 240px;
+        height: 205px;
+    }
+
+    #opt04 {
+        left: 1010px;
+        top: 510px;
+        width: 250px;
+        height: 205px;
+    }
+
+    #opt05 {
+        left: 110px;
+        top: 770px;
+        width: 240px;
+        height: 205px;
+    }
+
+    #opt06 {
+        left: 410px;
+        top: 770px;
+        width: 240px;
+        height: 205px;
+    }
+
+    #opt07 {
+        left: 715px;
+        top: 770px;
+        width: 240px;
+        height: 205px;
+    }
+
+    #opt08 {
+        left: 1010px;
+        top: 770px;
+        width: 260px;
+        height: 205px;
+    }
+
+</style>
 {% endblock %}
 
 {% block content %}
+<div class="container_body">
+<img src= "{% static 'img/25. mundo_formacion1.png' %}" alt="25.mundo_formacion1" class="img_width_all">
 
-    {% next_button %}
+<input type="button" class="select_button" id="opt01" name="0">
+
+<input type="button" class="select_button" id="opt02" name="0">
+
+<input type="button" class="select_button" id="opt03" name="0">
+
+<input type="button" class="select_button" id="opt04" name="0">
+
+<input type="button" class="select_button" id="opt05" name="0">
+
+<input type="button" class="select_button" id="opt06" name="0">
+
+<input type="button" class="select_button" id="opt07" name="0">
+
+<input type="button" class="select_button" id="opt08" name="0">
+
+
+
+<input type="button" class="hidden_button" onclick="next_screen()">
+
+
+<input type="hidden" class="variable" name="mundo_formacion1" id="mundo_formacion1">
+
+</div>
+{% next_button %}
 
 {% endblock %}
