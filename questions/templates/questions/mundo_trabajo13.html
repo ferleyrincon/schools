@@ -1,11 +1,253 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
+{% block scripts %}
+    <!-- custom style sheet-->
+    <link href="{% static 'css/schools.css' %}" rel="stylesheet">
+    <script src="{% static 'js/schools.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            formulario = document.getElementById("form");
+        });
 
-{% block title %}
-    ¿En cuál de estos sectores te gustaría trabajar?
+        // Función para pasar a la siguiente pantalla
+        function next_screen(){
+            document.getElementById("mi_mundo_3").value = elecciones.toString();
+            formulario.submit();
+        };
+
+        var cnt_eleccion = 0;
+        var elecciones = [];
+
+        $(function () {
+            $('.select_button').click(function () {
+                var value = $(this).attr('name');
+                var id = $(this).attr('id');
+                if(value == "0") {
+                    if(cnt_eleccion < 3) {
+                        cnt_eleccion += 1;
+                        document.getElementById(id).className += " select_button_active";
+                        document.getElementById(id).name = "1";
+                        elecciones.push(id);
+                    }
+                } else {
+                    cnt_eleccion -= 1;
+                    document.getElementById(id).className = "select_button";
+                    document.getElementById(id).name = "0";
+                    for(var i = 0; i < elecciones.length; i++){ 
+                        if (elecciones[i] == id) { 
+                            elecciones.splice(i, 1); 
+                        }
+                    }
+                }
+                console.log("Elecciones", elecciones);
+            });
+        });
+    </script>
+    <style>
+    .hidden_button {  
+        left: 125px;
+        top: 1466px;
+        width: 408px;
+        height: 70px;
+    }
+
+    #opt01 {
+        left: 170px;
+        top: 500px;
+        width: 125px;
+        height: 200px;
+    }
+
+    #opt02 {
+        left: 344px;
+        top: 500px;
+        width: 175px;
+        height: 200px;
+    }
+
+    #opt03 {
+        left: 555px;
+        top: 500px;
+        width: 150px;
+        height: 200px;
+    }
+
+    #opt04 {
+        left: 767px;
+        top: 500px;
+        width: 125px;
+        height: 200px;
+    }
+
+    #opt05 {
+        left: 940px;
+        top: 500px;
+        width: 175px;
+        height: 200px;
+    }
+
+    #opt06 {
+        left: 1139px;
+        top: 500px;
+        width: 175px;
+        height: 200px;
+    }
+
+    #opt07 {
+        left: 170px;
+        top: 730px;
+        width: 125px;
+        height: 200px;
+    }
+
+    #opt08 {
+        left: 344px;
+        top: 730px;
+        width: 175px;
+        height: 200px;
+    }
+
+    #opt09 {
+        left: 545px;
+        top: 730px;
+        width: 170px;
+        height: 200px;
+    }
+
+    #opt10 {
+        left: 767px;
+        top: 730px;
+        width: 125px;
+        height: 200px;
+    }
+
+    #opt11 {
+        left: 940px;
+        top: 730px;
+        width: 175px;
+        height: 200px;
+    }
+
+    #opt12 {
+        left: 1139px;
+        top: 730px;
+        width: 175px;
+        height: 200px;
+    }
+
+    #opt13 {
+        left: 170px;
+        top: 980px;
+        width: 125px;
+        height: 200px;
+    }
+
+    #opt14 {
+        left: 344px;
+        top: 980px;
+        width: 175px;
+        height: 200px;
+    }
+
+    #opt15 {
+        left: 555px;
+        top: 980px;
+        width: 150px;
+        height: 200px;
+    }
+
+    #opt16 {
+        left: 745px;
+        top: 980px;
+        width: 170px;
+        height: 200px;
+    }
+
+    #opt17 {
+        left: 940px;
+        top: 980px;
+        width: 175px;
+        height: 200px;
+    }
+
+    #opt18 {
+        left: 1139px;
+        top: 980px;
+        width: 175px;
+        height: 200px;
+    }
+
+    #opt19 {
+        left: 150px;
+        top: 1210px;
+        width: 175px;
+        height: 200px;
+    }
+
+    #opt20 {
+        left: 344px;
+        top: 1210px;
+        width: 175px;
+        height: 200px;
+    }
+
+    
+
+    </style>
 {% endblock %}
 
 {% block content %}
+<div class="container_body">
+<img src= "{% static 'img/22. mundo_trabajo13.png' %}" alt="mundo_trabajo13" class="img_width_all">
+
+<input type="button" class="select_button" id="opt01" name="0">
+
+<input type="button" class="select_button" id="opt02" name="0">
+
+<input type="button" class="select_button" id="opt03" name="0">
+
+<input type="button" class="select_button" id="opt04" name="0">
+
+<input type="button" class="select_button" id="opt05" name="0">
+
+<input type="button" class="select_button" id="opt06" name="0">
+
+<input type="button" class="select_button" id="opt07" name="0">
+
+<input type="button" class="select_button" id="opt08" name="0">
+
+<input type="button" class="select_button" id="opt09" name="0">
+
+<input type="button" class="select_button" id="opt10" name="0">
+
+<input type="button" class="select_button" id="opt11" name="0">
+
+<input type="button" class="select_button" id="opt12" name="0">
+
+<input type="button" class="select_button" id="opt13" name="0">
+
+<input type="button" class="select_button" id="opt14" name="0">
+
+<input type="button" class="select_button" id="opt15" name="0">
+
+<input type="button" class="select_button" id="opt16" name="0">
+
+<input type="button" class="select_button" id="opt17" name="0">
+
+<input type="button" class="select_button" id="opt18" name="0">
+
+<input type="button" class="select_button" id="opt19" name="0">
+
+<input type="button" class="select_button" id="opt20" name="0">
+
+
+
+<input type="button" class="hidden_button" onclick="next_screen()">
+
+
+<input type="hidden" class="variable" name="mi_mundo_3" id="mi_mundo_3">
+
+</div>
 
     {% next_button %}
 
