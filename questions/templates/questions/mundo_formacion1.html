@@ -23,7 +23,7 @@
                 var value = $(this).attr('name');
                 var id = $(this).attr('id');
                 if(value == "0") {
-                    if(cnt_eleccion < 1) {
+                    if(cnt_eleccion < 3) {
                         cnt_eleccion += 1;
                         document.getElementById(id).className += " select_button_active";
                         document.getElementById(id).name = "1";
