@@ -1,12 +1,36 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
+{% block scripts %}
+    <!-- custom style sheet-->
+    <link href="{% static 'css/schools.css' %}" rel="stylesheet">
+    <script src="{% static 'js/schools.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            formulario = document.getElementById("form");
+        });
 
-{% block title %}
-    Mundo de la formación
+        // Función para pasar a la siguiente pantalla
+        function next_screen(){
+            formulario.submit();
+        };
+    </script>
+    <style>
+    .hidden_button {  
+        left: 500px;
+        top: 548px;
+        width: 375px;
+        height: 75px;
+    }
+    </style>
 {% endblock %}
 
 {% block content %}
+<img src= "{% static 'img/24. mundo_formacion.PNG' %}" alt="24.mundo_formacion" class="img_width_all">
+
+<input type="button" class="hidden_button" onclick="next_screen()">
 
     {% next_button %}
 
 {% endblock %}
+
+

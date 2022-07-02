@@ -118,4 +118,4 @@ class thanks(Page):
                  #mundo_trabajo5 , mundo_trabajo6 , mundo_trabajo7 ,                  mundo_trabajo9 , 
                  #mundo_trabajo10 , mundo_trabajo11]
 
-page_sequence = [mundo_trabajo14]
+page_sequence = [mundo_formacion]
