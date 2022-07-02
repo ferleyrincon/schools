@@ -11,7 +11,7 @@
 
         // Función para pasar a la siguiente pantalla
         function next_screen(){
-            document.getElementById("mundo_trabajo8").value = elecciones.toString();
+            //document.getElementById("").value = elecciones.toString();
             formulario.submit();
         };
 
@@ -45,60 +45,60 @@
     </script>
     <style>
     .hidden_button {  
-        left: 312px;
-        top: 300px;
-        width: 277px;
-        height: 47px;
+        left: 94px;
+        top: 1093px;
+        width: 412px;
+        height: 70px;
     }
 
     #opt01 {
-        left: 312px;
-        top: 355px;
-        width: 142px;
-        height: 137px;
+        left: 130px;
+        top: 530px;
+        width: 200px;
+        height: 205px;
     }
 
     #opt02 {
-        left: 482px;
-        top: 355px;
-        width: 142px;
-        height: 137px;
+        left: 380px;
+        top: 530px;
+        width: 200px;
+        height: 205px;
     }
 
     #opt03 {
-        left: 652px;
-        top: 355px;
-        width: 142px;
-        height: 137px;;
+        left: 627px;
+        top: 530px;
+        width: 200px;
+        height: 205px;
     }
 
     #opt04 {
-        left: 312px;
-        top: 548px;
-        width: 142px;
-        height: 137px;
+        left: 129px;
+        top: 810px;
+        width: 200px;
+        height: 205px;
     }
 
     #opt05 {
-        left: 482px;
-        top: 548px;
-        width: 142px;
-        height: 137px;
+        left: 379px;
+        top: 810px;
+        width: 200px;
+        height: 205px;
     }
 
     #opt06 {
-        left: 652px;
-        top: 548px;
-        width: 142px;
-        height: 137px;
+        left: 627px;
+        top: 810px;
+        width: 200px;
+        height: 205px;
     }
 
-    </style>
+</style>
 {% endblock %}
 
 {% block content %}
 <div class="container_body">
-<img src= "{% static 'img/17. mundo_trabajo8.png' %}" alt="mundo_trabajo8" class="img_width_all">
+<img src= "{% static 'img/17. mundo_trabajo8.png' %}" alt="17.mundo_trabajo8" class="img_width_all">
 
 <input type="button" class="select_button" id="opt01" name="0">
 
@@ -113,10 +113,12 @@
 <input type="button" class="select_button" id="opt06" name="0">
 
 
+<input type="button" class="hidden_button" onclick="next_screen()">
+
+
 <input type="hidden" class="variable" name="mundo_trabajo8" id="mundo_trabajo8">
 
 </div>
-
-    {% next_button %}
+{% next_button %}
 
 {% endblock %}
