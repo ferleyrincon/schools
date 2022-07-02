@@ -116,6 +116,7 @@ class thanks(Page):
 #page_sequence = [consent, ingresar, sigue,          mi_mundo , mi_mundo1 , mi_mundo2 , mi_mundo3 , mi_mundo4 , 
                  #mundo_trabajo , mundo_trabajo1 , mundo_trabajo2 , mundo_trabajo3 , mundo_trabajo4 ,
                  #mundo_trabajo5 , mundo_trabajo6 , mundo_trabajo7 ,                  mundo_trabajo9 , 
-                 #mundo_trabajo10 , mundo_trabajo11]
+                 #mundo_trabajo10 , mundo_trabajo11                                    , mundo_trabajo14 , 
+                 #mundo_formacion]
 
-page_sequence = [mundo_formacion]
+page_sequence = [mundo_formacion1]
