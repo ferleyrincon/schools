@@ -1,12 +1,98 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
+{% block scripts %}
+    <!-- custom style sheet-->
+    <link href="{% static 'css/schools.css' %}" rel="stylesheet">
+    <script src="{% static 'js/schools.js' %}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            formulario = document.getElementById("form");
+        });
 
-{% block title %}
-    En mi trabajo me gustaría responder por:
+        // Función para pasar a la siguiente pantalla
+        function next_screen(){
+            //document.getElementById("").value = elecciones.toString();
+            formulario.submit();
+        };
+
+        var cnt_eleccion = 0;
+        var elecciones = [];
+
+        $(function () {
+            $('.select_button').click(function () {
+                var value = $(this).attr('name');
+                var id = $(this).attr('id');
+                if(value == "0") {
+                    if(cnt_eleccion < 1) {
+                        cnt_eleccion += 1;
+                        document.getElementById(id).className += " select_button_active";
+                        document.getElementById(id).name = "1";
+                        elecciones.push(id);
+                    }
+                } else {
+                    cnt_eleccion -= 1;
+                    document.getElementById(id).className = "select_button";
+                    document.getElementById(id).name = "0";
+                    for(var i = 0; i < elecciones.length; i++){ 
+                        if (elecciones[i] == id) { 
+                            elecciones.splice(i, 1); 
+                        }
+                    }
+                }
+                console.log("Elecciones", elecciones);
+            });
+        });
+    </script>
+    <style>
+    .hidden_button {  
+        left: 68px;
+        top: 883px;
+        width: 410px;
+        height: 70px;
+    }
+
+    #opt01 {
+        left: 100px;
+        top: 590px;
+        width: 360px;
+        height: 230px;
+    }
+
+    #opt02 {
+        left: 500px;
+        top: 590px;
+        width: 355px;
+        height: 230px;
+    }
+
+    #opt03 {
+        left: 898px;
+        top: 590px;
+        width: 350px;
+        height: 230px;
+    }
+
+
+</style>
 {% endblock %}
 
 {% block content %}
+<div class="container_body">
+<img src= "{% static 'img/20. mundo_trabajo11.png' %}" alt="20.mundo_trabajo11" class="img_width_all">
 
-    {% next_button %}
+<input type="button" class="select_button" id="opt01" name="0">
+
+<input type="button" class="select_button" id="opt02" name="0">
+
+<input type="button" class="select_button" id="opt03" name="0">
+
+
+<input type="button" class="hidden_button" onclick="next_screen()">
+
+
+<input type="hidden" class="variable" name="mundo_trabajo11" id="mundo_trabajo11">
+
+</div>
+{% next_button %}
 
 {% endblock %}
