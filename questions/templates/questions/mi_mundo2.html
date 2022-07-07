@@ -11,7 +11,7 @@
 
         // Función para pasar a la siguiente pantalla
         function next_screen(){
-            //document.getElementById("mi_mundo_1").value = elecciones.toString();
+            document.getElementById("mi_mundo2").value = elecciones.toString();
             formulario.submit();
         };
 
@@ -116,7 +116,7 @@
 <input type="button" class="hidden_button" onclick="next_screen()">
 
 
-<input type="hidden" class="variable" name="mi_mundo_2" id="mi_mundo_2">
+<input type="hidden" class="variable" name="mi_mundo2" id="mi_mundo2">
 
 </div>
 {% next_button %}
