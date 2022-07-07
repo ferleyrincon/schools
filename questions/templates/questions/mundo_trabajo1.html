@@ -11,8 +11,12 @@
 
         // Función para pasar a la siguiente pantalla
         function next_screen(){
-            //document.getElementById("").value = elecciones.toString();
-            formulario.submit();
+            if(cnt_eleccion != 0) {
+                document.getElementById("mundo_trabajo1").value = elecciones.toString();
+                formulario.submit();
+            } else {
+                alert("Selecciona por lo menos una respuesta");
+            }
         };
 
         var cnt_eleccion = 0;
