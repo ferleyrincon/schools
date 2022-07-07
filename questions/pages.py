@@ -42,70 +42,91 @@ class mundo_trabajo(Page):
     pass
 
 class mundo_trabajo1(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['mundo_trabajo1']
 
 class mundo_trabajo2(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['mundo_trabajo2']
 
 class mundo_trabajo3(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['mundo_trabajo3']
 
 class mundo_trabajo4(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['mundo_trabajo4']
 
 class mundo_trabajo5(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['mundo_trabajo5']
 
 class mundo_trabajo6(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['mundo_trabajo6']
 
 class mundo_trabajo7(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['mundo_trabajo7']
 
 class mundo_trabajo8(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['mundo_trabajo8']
 
 class mundo_trabajo9(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['mundo_trabajo9']
 
 class mundo_trabajo10(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['mundo_trabajo10']
 
 class mundo_trabajo11(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['mundo_trabajo11']
 
 class mundo_trabajo12(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['mundo_trabajo12']
 
 class mundo_trabajo13(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['mundo_trabajo13']
 
 class mundo_trabajo14(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['mundo_trabajo14']
 
 class mundo_formacion(Page):
     pass
 
 class mundo_formacion1(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['mundo_formacion1']
 
 class mundo_formacion2(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['mundo_formacion2']
 
 class mundo_formacion3(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['mundo_formacion3']
 
 class mundo_formacion4(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['mundo_formacion4']
 
 class mundo_formacion5(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['mundo_formacion5']
 
 class mundo_formacion6(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['mundo_formacion6']
 
 class mundo_formacion7(Page):
-    pass
+    form_model = 'player'
+    form_fields = ['mundo_formacion7']
 
 class thanks(Page):
     pass
