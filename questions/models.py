@@ -57,6 +57,7 @@ class Player(BasePlayer):
     mundo_trabajo11 = models.StringField()
     mundo_trabajo12 = models.StringField()
     mundo_trabajo13 = models.StringField()
+    mundo_trabajo14 = models.StringField()
     mundo_formacion1 = models.StringField()
     mundo_formacion2 = models.StringField()
     mundo_formacion3 = models.StringField()

@@ -146,7 +146,7 @@ page_sequence = [consent, ingresar, sigue , mi_mundo , mi_mundo1 , mi_mundo2 , m
 
 """
 
-page_sequence = [consent, tables]
+#page_sequence = [consent, tables]
 
 """
 page_sequence = [consent, ingresar, sigue , mi_mundo , mi_mundo1 , mi_mundo2 , mi_mundo3 , mi_mundo4 , 
@@ -157,4 +157,4 @@ page_sequence = [consent, ingresar, sigue , mi_mundo , mi_mundo1 , mi_mundo2 , m
                  mundo_formacion5 , mundo_formacion6 , mundo_formacion7 , thanks]
 """
 
-#page_sequence = [mi_mundo3]
+page_sequence = [mundo_trabajo14]
