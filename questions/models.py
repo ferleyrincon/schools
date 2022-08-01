@@ -80,3 +80,5 @@ class Player(BasePlayer):
     prefer_15000 = models.IntegerField();
     prefer_10000 = models.IntegerField();
     prefer_5000 = models.IntegerField();
+
+    puntaje_global = models.IntegerField();
