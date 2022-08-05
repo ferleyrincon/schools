@@ -3,13 +3,6 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 
 
-class consent(Page):
-    form_model = 'player'
-    form_fields = ['consent','consent_account']
-
-    def is_displayed(self):
-        return self.round_number == 1
-
 class ingresar(Page):
     pass
 
@@ -128,25 +121,25 @@ class mundo_formacion7(Page):
     form_model = 'player'
     form_fields = ['mundo_formacion7']
 
-class tables(Page):
-    form_model = 'player'
-    form_fields = ['prueba_20000', 'prueba_15000', 'prueba_10000', 'prueba_5000', 'puntaje_20000', 'puntaje_15000', 'puntaje_10000', 'puntaje_5000', 'prefer_20000', 'prefer_15000', 'prefer_10000', 'prefer_5000', 'puntaje_global']
 
 class thanks(Page):
     pass
 
 
-""""
-page_sequence = [consent, ingresar, sigue , mi_mundo , mi_mundo1 , mi_mundo2 , mi_mundo3 , mi_mundo4 ,
+
+page_sequence = [ingresar, sigue , mi_mundo , mi_mundo1 , mi_mundo2 , mi_mundo3 , mi_mundo4 ,
                 mundo_trabajo , mundo_trabajo1 , mundo_trabajo2 , mundo_trabajo3 , mundo_trabajo4 , 
                 mundo_trabajo5 , mundo_trabajo6 , mundo_trabajo7 , mundo_trabajo8 , mundo_trabajo9 , 
                 mundo_trabajo10 , mundo_trabajo11 , mundo_trabajo12 , mundo_trabajo13 ,
                 mundo_formacion , mundo_formacion1 , mundo_formacion2 , mundo_formacion3 , mundo_formacion4 ,
                 mundo_formacion5 , mundo_formacion6 , mundo_formacion7, thanks]
 
+
 """
 
-page_sequence = [consent, tables]
+page_sequence = [tables]
+
+"""
 
 """
 page_sequence = [consent, ingresar, sigue , mi_mundo , mi_mundo1 , mi_mundo2 , mi_mundo3 , mi_mundo4 , 

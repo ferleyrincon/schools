@@ -1,0 +1,35 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Instrucciones Generales
+{% endblock %}
+
+{% block content %}
+<p>En esta actividad responderá algunas preguntas sobre sus aspiraciones en el examen <i>Saber 11 – ICFES</i> y participará en un juego. 
+    Los pagos asociados a las preguntas sobre los resultados esperados en el <i>Saber 11</i>, 
+    le serán entregadas en una actividad posterior a la publicación de los resultados individuales que hace el ICFES. </p>
+
+<p>La actividad es individual, le pedimos que por favor no hable ni trate de mirar las respuestas de los demás participantes. 
+    Si hay algo que usted no entiende, por favor levante la mano, uno de los monitores se acercará y tratará de ayudarlo de manera individual. </p>
+
+<p>Recuerde que no hay respuestas correctas o incorrectas en esta actividad.</p>
+
+<h5>Código de participante</h5>
+
+<p>Con su invitación a participar recibió un código de participante, esa es su identificación durante toda la actividad. 
+    Nunca le pediremos su nombre ni su número de documento de identidad. 
+    Por favor no pierda ni entregue su código de participante, lo necesitará para reclamar sus ganancias. </p>
+
+    <p><b>
+        {% formfields %}
+    </b></p>
+
+<h5>Pago</h5>
+
+        <p>Presentando su código de participante le darán sus pagos en efectivo. 
+        La persona que hace los pagos no conocerá sus respuestas, ni cómo fueron generados, solamente cuanto tiene que pagarle.</p>
+        
+    {% next_button %}
+
+{% endblock %}

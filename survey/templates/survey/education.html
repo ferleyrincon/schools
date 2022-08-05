@@ -1,0 +1,15 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Pregunta Inicial
+{% endblock %}
+
+{% block content %}
+Por favor haga una lista de 5 <i>profesiones</i>, <i>oficios</i> u <i>ocupaciones</i> que considere ideales para usted.
+Escríbalas en orden de importancia, donde <b>1</b> significa que "es lo que más me le gustaría hacer" y <b>5</b> significa que "es la que menos le gustaría hacer":  
+
+
+    {% next_button %}
+
+{% endblock %}

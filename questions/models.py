@@ -37,9 +37,6 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    consent = models.BooleanField(blank=True)
-    consent_account = models.BooleanField(blank=True)
-
     mi_mundo1 = models.StringField()
     mi_mundo2 = models.StringField()
     mi_mundo3 = models.StringField()
@@ -65,20 +62,3 @@ class Player(BasePlayer):
     mundo_formacion5 = models.StringField()
     mundo_formacion6 = models.StringField()
     mundo_formacion7 = models.StringField()
-
-    prueba_20000 = models.StringField();
-    prueba_15000 = models.StringField();
-    prueba_10000 = models.StringField();
-    prueba_5000 = models.StringField();
-
-    puntaje_20000 = models.IntegerField();
-    puntaje_15000 = models.IntegerField();
-    puntaje_10000 = models.IntegerField();
-    puntaje_5000 = models.IntegerField();
-
-    prefer_20000 = models.IntegerField();
-    prefer_15000 = models.IntegerField();
-    prefer_10000 = models.IntegerField();
-    prefer_5000 = models.IntegerField();
-
-    puntaje_global = models.IntegerField();

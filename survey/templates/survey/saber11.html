@@ -211,7 +211,27 @@
     </style>
 {% endblock %}
 
+{% block title %}
+    Aspiraciones Saber 11 - ICFES
+{% endblock %}
+
 {% block content %}
+
+<p>Llene la tabla con la prueba, el puntaje que cree va a lograr y su preferencia.</p>
+
+<ul>
+<li> <b>Pruebas:</b> Recuerde que las pruebas que componen el examen <i>Saber 11</i> son: Matemáticas, Lectura Crítica, Sociales y Ciudadanas, Ciencias Naturales. 
+    <u>Debe arrastrar una prueba a cada casilla.</u></li> 
+<li><b>Puntaje esperado Prueba:</b> <u>Escriba un número entre 0 y 100</u> para indicar el puntaje que cree va a lograr en cada prueba. Donde <b>0</b> es el puntaje más bajo y <b>100</b> es el puntaje más alto.<br> 
+    En una actividad posterior a la publicación de los resultados individuales que hace el ICFES, <i>recibirá un pago en efectivo si el puntaje que usted escriba como PUNTAJE ESPERADO esta <span style="color: #ff0000;"><b>máximo</b></span> 10 puntos por debajo o 10 puntos por encima de su PUNTAJE REAL de la prueba.</i></li>
+
+<li><b>Califique su preferencia:</b> Asigne una calificación de 1 a 4 a cada prueba. Donde <b>1</b> es la prueba menos preferida y <b>4</b> la prueba más preferida. <u>Debe arrastrar un número a cada casilla</u>, no se puede asignar un número más de una vez.</li> 
+<p></p>
+
+</ul>
+
+<h5>Tabla de respuestas: arrastre y escriba</h5>
+
 <div class="options_tables">
     <table>
         <tr>
@@ -251,7 +271,7 @@
             <b>Prueba</b>
         </td>
         <td class="head" style="width: 20%;">
-            <b>Puntaje Prueba</b><br>(Número de <b>0</b> a <b>100</b>)
+            <b>Puntaje esperado Prueba</b><br>(Número de <b>0</b> a <b>100</b>)
         </td>
         <td class="head" style="width: 20%;">
             <b>Califique su preferencia</b><br>(<b>1</b> la menos preferida y <b>4</b> la más preferida)
@@ -317,40 +337,32 @@
 
 <hr>
 
+<h5>Puntaje global</h5>
+
+<p>
+    Cuando se publiquen los resultados del examen <i>Saber 11</i>, vamos a ordenar a los estudiantes de su SALÓN en (5) cinco grupos según el puntaje global en las pruebas. 
+    Cada grupo tendrá igual número de personas.  
+</p>
+
+<p>
+    Usted en que posición cree que será clasificado. Si acierta el grupo en el que quedará recibirá <b>$5.000</b> adicionales.
+</p>
 <table class="tabla">
     <tr>
-        <td class="head" style="width: 18%;">
-            <b>Puntaje Global</b>
+        <td class="head" style="width: 40%;">
+            <b>Desempeño</b>
         </td>
-        <td class="head" style="width: 8%;">
-            <b>1-10</b>
+        <td class="head" style="width: 15%;">
+            <b>Bajo</b>
         </td>
-        <td class="head" style="width: 8%;">
-            <b>11-20</b>
+        <td class="head" style="width: 15%;">
+            <b>Básico</b>
         </td>
-        <td class="head" style="width: 8%;">
-            <b>21-30</b>
+        <td class="head" style="width: 15%;">
+            <b>Alto</b>
         </td>
-        <td class="head" style="width: 8%;">
-            <b>31-40</b>
-        </td>
-        <td class="head" style="width: 8%;">
-            <b>41-50</b>
-        </td>
-        <td class="head" style="width: 8%;">
-            <b>51-60</b>
-        </td>
-        <td class="head" style="width: 8%;">
-            <b>61-70</b>
-        </td>
-        <td class="head" style="width: 8%;">
-            <b>71-80</b>
-        </td>
-        <td class="head" style="width: 8%;">
-            <b>81-90</b>
-        </td>
-        <td class="head">
-            <b>91-100</b>
+        <td class="head" style="width: 15%;">
+            <b>Superior</b>
         </td>
     </tr>
     <tr>
@@ -361,34 +373,15 @@
             <input type="radio" name="puntaje_global" value="1">
         </td>
         <td>
-            <input type="radio" name="puntaje_global" value="11">
+            <input type="radio" name="puntaje_global" value="2">
         </td>
         <td>
-            <input type="radio" name="puntaje_global" value="21">
+            <input type="radio" name="puntaje_global" value="3">
         </td>
         <td>
-            <input type="radio" name="puntaje_global" value="31">
+            <input type="radio" name="puntaje_global" value="4">
         </td>
-        <td>
-            <input type="radio" name="puntaje_global" value="41">
-        </td>
-        <td>
-            <input type="radio" name="puntaje_global" value="51">
-        </td>
-        <td>
-            <input type="radio" name="puntaje_global" value="61">
-        </td>
-        <td>
-            <input type="radio" name="puntaje_global" value="71">
-        </td>
-        <td>
-            <input type="radio" name="puntaje_global" value="81">
-        </td>
-        <td>
-            <input type="radio" name="puntaje_global" value="91">
-        </td>
-    </tr>
-    
+    </tr>  
 </table>
 
 </div>
