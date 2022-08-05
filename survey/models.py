@@ -64,3 +64,18 @@ class Player(BasePlayer):
     ], label="¿Para hacer lo que más le gusta es necesaria una carrera?")
 
     educ_university = models.StringField(label="Escriba el nombre de la institución en la que desea estudiar:")
+
+    efficacy1 =  models.IntegerField()
+    check_slider_efficacy1 =  models.IntegerField()
+
+    efficacy2 =  models.IntegerField()
+    check_slider_efficacy2 =  models.IntegerField()
+
+    efficacy3 =  models.IntegerField()
+    check_slider_efficacy3 =  models.IntegerField()
+
+    efficacy4 =  models.IntegerField()
+    check_slider_efficacy4 =  models.IntegerField()
+
+    educsup =  models.IntegerField()
+    check_slider_educsup=  models.IntegerField()

@@ -1,0 +1,232 @@
+/* ****************************************************************************************************************** */
+/* *** General Appearance *** */
+/* ****************************************************************************************************************** */
+
+.otree-body {
+    min-width: 560px;
+    max-width: 940px;
+    margin: 0 auto 2.5rem;
+}
+
+.page-header {
+    margin: 2rem auto;
+    padding: 0;
+}
+
+h2 {
+    text-align: center !important;
+}
+
+.h4 {
+    margin: 1.75rem 0 0.75rem 0;
+    font-size: 1.25rem;
+    font-style: italic;
+}
+
+.otree-btn-next {
+    margin: 30px auto;
+    display: inherit !important;
+}
+
+
+/* ****************************************************************************************************************** */
+/* *** Decision/Results Table *** */
+/* ****************************************************************************************************************** */
+
+.card {
+    margin-bottom: 1.5rem;
+}
+
+.card_table{
+    margin-bottom: 1.5rem;
+    max-width: 950px;
+    margin: 0 auto;
+    padding: 0 0;
+}
+
+.table {
+    margin-bottom: 0;
+}
+
+.table>thead>tr>th,
+.table>tbody>tr>td {
+    text-align: center;
+    vertical-align: middle;
+    width: 20%;
+    min-width: 100px;
+    max-width: 150px;
+}
+
+.table thead th {
+    vertical-align: bottom;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.table thead tr:first-child {
+    border: hidden;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.table thead tr:last-child {
+    border-bottom: 0;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.table td {
+    border-top: 1px solid rgba(0, 0, 0, 0.125);
+}
+
+.table tr:hover {
+  background-color: rgba(0, 0, 0, 0.025);
+}
+
+.formfield {
+    min-width: 120px;
+    max-width: 120px;
+}
+
+input[type="radio"] {
+    margin: auto 0.5rem;
+    vertical-align: middle;
+}
+
+.intermedio{
+    margin-top: 35px;
+}
+
+.text_slider{
+    text-align: center;
+    color: #0032c8;
+    width: 22%;
+    min-width: 120px;
+}
+
+.td_text_slider{
+    text-align: center;
+    width: 22%;
+    min-width: 120px;
+}
+
+.td_slider{
+    text-align: center;
+    width: 56%;
+    min-width: 350px;
+    max-width: 890px;
+    padding: 10px;
+}
+
+.slider_dinero, .slider_tiempo{
+    -webkit-appearance: none;
+    margin: 18px 0;
+    width: 100%;
+    background-color: #007bff;
+}
+
+.slider_dinero: focus, .slider_tiempo: focus{
+    outline: none;
+}   
+
+.slider_dinero::-webkit-slider-runnable-track, .slider_tiempo::-webkit-slider-runnable-track{
+    width: 100%;
+    height: 8.4px;
+    cursor: pointer;
+    animate: 0.2s;
+    {#box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;#}
+    background: #007afe;
+    border-radius: 0px;
+    border: 0.0px solid #ffffff;
+}
+
+.slider_dinero::-webkit-slider-thumb, .slider_tiempo::-webkit-slider-thumb {
+    border: 0px;
+    height: 0px;
+    width: 0px;
+    border-radius: 0px;
+    -webkit-appearance: none;
+}
+
+.slider_dinero:hover, .slider_tiempo:hover{
+    opacity: 1;
+}
+
+.myclass::-webkit-slider-thumb {
+    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #007afe;
+    border: 1px solid #000000;
+    height: 21px !important;
+    width: 10px !important;
+    border-radius: 0px !important;
+    background: #ffffff !important;
+    cursor: pointer !important !important;
+    -webkit-appearance: none !important;
+    margin-top: -7px !important;
+}
+
+.table_question{
+    width: 100%;
+}
+
+.errorlist{
+    color: #ff0000;
+    font-weight: bold;
+}
+
+input[type="radio"][disabled]{
+    border: 2px solid #757575;
+    border-radius: 7px;
+    box-shadow: 0px 0px 2px 0px #757575;
+}
+
+input[type="radio"]:checked::before{
+    transform: scale(1);
+}
+
+input[type="radio"]:checked{
+    border: 2px solid #007cff;
+    border-radius: 7px;
+    box-shadow: 0px 0px 2px 0px #007cff;
+}
+
+input[type="radio"]::before{
+    content: "";
+    display: block;
+    height: 6px;
+    width: 6px;
+    border-radius: 3px;
+    z-index: 1;
+    top: 2px;
+    left: 2px;
+    background-color: #007cff;
+    transition: 100ms transform ease-in-out;
+    transform: scale(0);
+    position: absolute;
+}
+
+input[type="radio"]{
+    -webkit-appearance: none;
+    appearance: none;
+    border: 2px solid #757575;
+    border-radius: 7px;
+    box-shadow: 0px 0px 2px 0px #757575;
+    background-color: #ffffff;
+    height: 14px;
+    width: 14px;
+    place-content: center;
+    position: relative;
+}
+
+.text_input{
+    max-width: 100% !important;
+    width: 100%;
+    margin-bottom: 10px;
+    height: 100px;
+}
+
+.form-check-label{
+    position: relative;
+    left: -17px;
+    top: -5px;
+}
+
+.td_q{
+    vertical-align: middle;
+}
