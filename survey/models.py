@@ -52,7 +52,7 @@ class Player(BasePlayer):
     prefer_10000 = models.IntegerField();
     prefer_5000 = models.IntegerField();
 
-    puntaje_global = models.IntegerField();
+    grupo_puntaje_global = models.IntegerField();
 
     educ_type = models.IntegerField(
     choices=[

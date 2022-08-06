@@ -8,8 +8,8 @@
     <script src="{% static 'survey/js/consistency.js' %}"></script>
     <script>
         $(document).ready(function () {
-            $('input[id=sliderDinero_p4]').on('input change', function () {
-                $('input[id=sliderDinero_p4]').addClass('myclass');
+            $('input[id=educsup]').on('input change', function () {
+                $('input[id=educsup]').addClass('myclass');
             });
         });
     </script> 
@@ -41,15 +41,16 @@
             <div class="card_table" id="h-slider-div" style="text-align: center;">
                 <table class="table_question">
                     <tr>
-                        <td class="text_slider"><b id="d_pa"> - </b></td>
-                        <td class="td_slider" rowspan="2">
-                            <input type="range" name="educsup" value="" min="0" max="100" step="1" id="sliderDinero_p4" class="slider_dinero" required>
-                            <input type="hidden" name="check_slider_educsup" value="" id="id_check_slider_educsup" required>
-                        </td>
-                        <td class="text_slider"><b id="d_pb"> - </b></td>
+                        <td class="text_slider"><b id="d_pa"></b></td>
+                        <td class="text_slider"><b id="efficacy_score"> - </b></td>
+                        <td class="text_slider"><b id="d_pb"></b></td>
                     </tr>
                     <tr>
                         <td class="td_text_slider"><br>No voy a <br> continuar estudiando</td>
+                        <td class="td_slider">
+                            <input type="range" name="educsup" value="" min="0" max="100" step="1" id="educsup" class="slider_efficacy" required>
+                            <input type="hidden" name="check_slider_educsup" value="" id="id_check_slider_educsup" required>
+                        </td>
                         <td class="td_text_slider"><br>Con toda seguridad <br> voy a ingresar a <br> un programa de <br> Educación superior</td>
                     </tr>
                 </table>

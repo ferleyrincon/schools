@@ -99,27 +99,47 @@ $(document).ready(function () {
 });
 
 $(document).ready(function () {
-    $('.slider_dinero').change(
+    $('.slider_efficacy').change(
         function (event) {
             var slider_id = event.target.id;
-            var parent_slider = document.getElementById(slider_id).parentElement.parentElement;
-            var childs = parent_slider.children;
+            var slider_input = document.getElementById(slider_id);
+            var efficacy_score = document.getElementById('efficacy_score');
+            var check_sli = document.getElementById('id_check_slider_educsup');
 
-            var dinero_pa = childs[0].firstElementChild;
-            var slider_max = childs[1].firstElementChild.max;
-            var slider_value = childs[1].firstElementChild.value;
-            var dinero_pb = childs[2].firstElementChild;
+            var slider_value = slider_input.value;
 
-            var check_sli = childs[1].lastElementChild;
-
-            dinero_pa.innerHTML = "$ "+numberWithPoints(slider_value);
-            dinero_pb.innerHTML = "$ "+numberWithPoints(slider_max-slider_value);
+            efficacy_score.innerHTML = numberWithPoints(slider_value);
             check_sli.value = 1;
 
             var next_button = document.getElementsByClassName('otree-btn-next');
             next_button[0].style.cssText += 'display: block !important;';
         }
     );
+});
+
+$(document).ready(function () {
+    $('.multislider_efficacy').change(
+        function (event) {
+            var slider_id = event.target.id;
+            var slider_input_value = document.getElementById(slider_id).value;
+            var efficacy_score = document.getElementById(slider_id).parentElement.parentElement.parentElement.children[0].children[1].children[0];
+            var check_sli = document.getElementById(slider_id).parentElement.children[1];
+
+            efficacy_score.innerHTML = numberWithPoints(slider_input_value);
+            check_sli.value = 1;
+/*
+            var next_button = document.getElementsByClassName('otree-btn-next');
+            next_button[0].style.cssText += 'display: block !important;';
+*/
+        }
+    );
+});
+
+$(document).ready(function () {
+    $('input[class=multislider_efficacy]').on('input change', function (event) {
+        var slider_id = event.target.id;
+        $('input[id='+slider_id).addClass('myclass');
+    });
 });
 
 $(document).ready(function () {

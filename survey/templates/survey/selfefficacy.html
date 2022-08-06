@@ -7,11 +7,23 @@
     <!-- functions and more -->
     <script src="{% static 'survey/js/consistency.js' %}"></script>
     <script>
+        // Cambiar por el total de sliders que haya en la página
+        var total_check = 4;
         $(document).ready(function () {
-            $('input[id=sliderDinero_p4]').on('input change', function () {
-                $('input[id=sliderDinero_p4]').addClass('myclass');
+            $('input[class=multislider_efficacy]').on('input change', function (event) {
+                var all_checks_sliders = document.getElementsByClassName('check_slider');
+                var sum_checks = Number(0);
+                for(const s of all_checks_sliders) {
+                    sum_checks = Number(sum_checks);
+                    sum_checks = sum_checks + Number(s.value);
+                }
+                if(sum_checks == total_check) {
+                    var next_button = document.getElementsByClassName('otree-btn-next');
+                    next_button[0].style.cssText += 'display: block !important;';
+                }
             });
         });
+
     </script> 
 
     <style>
@@ -42,16 +54,17 @@
             <div class="card_table" id="h-slider-div" style="text-align: center;">
                 <table class="table_question">
                     <tr>
-                        <td class="text_slider"><b id="d_pa"> - </b></td>
-                        <td class="td_slider" rowspan="2">
-                            <input type="range" name="efficacy1" value="" min="0" max="100" step="1" id="sliderDinero_p4" class="slider_dinero" required>
-                            <input type="hidden" name="check_slider_efficacy1" value="" id="id_check_slider_efficacy1" required>
-                        </td>
-                        <td class="text_slider"><b id="d_pb"> - </b></td>
+                        <td class="text_slider"></td>
+                        <td class="text_slider"><b id="efficacy_score"> - </b></td>
+                        <td class="text_slider"></td>
                     </tr>
                     <tr>
-                        <td class="td_text_slider"><br>Totalmente Incapaz</td>
-                        <td class="td_text_slider"><br>Totalmente Capaz</td>
+                        <td class="td_text_slider">Totalmente Incapaz</td>
+                        <td class="td_slider">
+                            <input type="range" name="efficacy1" value="" min="0" max="100" step="1" id="multislider_efficacy_1" class="multislider_efficacy" required>
+                            <input type="hidden" name="check_slider_efficacy1" value="" id="id_check_slider_efficacy1" class="check_slider" required>
+                        </td>
+                        <td class="td_text_slider">Totalmente Capaz</td>
                     </tr>
                 </table>
             </div>
@@ -68,16 +81,17 @@
             <div class="card_table" id="h-slider-div" style="text-align: center;">
                 <table class="table_question">
                     <tr>
-                        <td class="text_slider"><b id="d_pa"> - </b></td>
-                        <td class="td_slider" rowspan="2">
-                            <input type="range" name="efficacy2" value="" min="0" max="100" step="1" id="sliderDinero_p4" class="slider_dinero" required>
-                            <input type="hidden" name="check_slider_efficacy2" value="" id="id_check_slider_efficacy2" required>
-                        </td>
-                        <td class="text_slider"><b id="d_pb"> - </b></td>
+                        <td class="text_slider"></td>
+                        <td class="text_slider"><b id="efficacy_score"> - </b></td>
+                        <td class="text_slider"></td>
                     </tr>
                     <tr>
-                        <td class="td_text_slider"><br>Totalmente Incapaz</td>
-                        <td class="td_text_slider"><br>Totalmente Capaz</td>
+                        <td class="td_text_slider">Totalmente Incapaz</td>
+                        <td class="td_slider">
+                            <input type="range" name="efficacy2" value="" min="0" max="100" step="1" id="multislider_efficacy_2" class="multislider_efficacy" required>
+                            <input type="hidden" name="check_slider_efficacy2" value="" id="id_check_slider_efficacy2" class="check_slider" required>
+                        </td>
+                        <td class="td_text_slider">Totalmente Capaz</td>
                     </tr>
                 </table>
             </div>
@@ -94,16 +108,17 @@
             <div class="card_table" id="h-slider-div" style="text-align: center;">
                 <table class="table_question">
                     <tr>
-                        <td class="text_slider"><b id="d_pa"> - </b></td>
-                        <td class="td_slider" rowspan="2">
-                            <input type="range" name="efficacy3" value="" min="0" max="100" step="1" id="sliderDinero_p4" class="slider_dinero" required>
-                            <input type="hidden" name="check_slider_efficacy3" value="" id="id_check_slider_efficacy3" required>
-                        </td>
-                        <td class="text_slider"><b id="d_pb"> - </b></td>
+                        <td class="text_slider"></td>
+                        <td class="text_slider"><b id="efficacy_score"> - </b></td>
+                        <td class="text_slider"></td>
                     </tr>
                     <tr>
-                        <td class="td_text_slider"><br>Totalmente Incapaz</td>
-                        <td class="td_text_slider"><br>Totalmente Capaz</td>
+                        <td class="td_text_slider">Totalmente Incapaz</td>
+                        <td class="td_slider">
+                            <input type="range" name="efficacy3" value="" min="0" max="100" step="1" id="multislider_efficacy_3" class="multislider_efficacy" required>
+                            <input type="hidden" name="check_slider_efficacy3" value="" id="id_check_slider_efficacy3" class="check_slider" required>
+                        </td>
+                        <td class="td_text_slider">Totalmente Capaz</td>
                     </tr>
                 </table>
             </div>
@@ -120,16 +135,17 @@
             <div class="card_table" id="h-slider-div" style="text-align: center;">
                 <table class="table_question">
                     <tr>
-                        <td class="text_slider"><b id="d_pa"> - </b></td>
-                        <td class="td_slider" rowspan="2">
-                            <input type="range" name="efficacy4" value="" min="0" max="100" step="1" id="sliderDinero_p4" class="slider_dinero" required>
-                            <input type="hidden" name="check_slider_efficacy4" value="" id="id_check_slider_efficacy4" required>
-                        </td>
-                        <td class="text_slider"><b id="d_pb"> - </b></td>
+                        <td class="text_slider"></td>
+                        <td class="text_slider"><b id="efficacy_score"> - </b></td>
+                        <td class="text_slider"></td>
                     </tr>
                     <tr>
-                        <td class="td_text_slider"><br>Totalmente Incapaz</td>
-                        <td class="td_text_slider"><br>Totalmente Capaz</td>
+                        <td class="td_text_slider">Totalmente Incapaz</td>
+                        <td class="td_slider">
+                            <input type="range" name="efficacy4" value="" min="0" max="100" step="1" id="multislider_efficacy_4" class="multislider_efficacy" required>
+                            <input type="hidden" name="check_slider_efficacy4" value="" id="id_check_slider_efficacy4" class="check_slider" required>
+                        </td>
+                        <td class="td_text_slider">Totalmente Capaz</td>
                     </tr>
                 </table>
             </div>
