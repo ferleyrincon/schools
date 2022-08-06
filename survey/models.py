@@ -9,7 +9,6 @@ from otree.api import (
     currency_range,
 )
 
-
 author = 'Your name here'
 
 doc = """
@@ -201,6 +200,17 @@ class Player(BasePlayer):
         [6,'Preparando a los hijos para que puedan ayudarlos en su vejez'],
         [7,'Nada'],
     ], label="17. ¿Qué están haciendo (hicieron) sus padres para mantenerse económicamente en la vejez?")
+
+    icfes_m1 = models.StringField(choices=['A', 'B', 'C', 'D'], widget=widgets.RadioSelectHorizontal, label="Seleccione solo UNA respuesta:")
+    icfes_m2 = models.StringField(choices=['A', 'B', 'C', 'D'], widget=widgets.RadioSelectHorizontal, label="Seleccione solo UNA respuesta:")
+    icfes_l1 = models.StringField(choices=['A', 'B', 'C', 'D'], widget=widgets.RadioSelectHorizontal, label="Seleccione solo UNA respuesta:")
+    icfes_l2 = models.StringField(choices=['A', 'B', 'C', 'D'], widget=widgets.RadioSelectHorizontal, label="Seleccione solo UNA respuesta:")
+    icfes_n1 = models.StringField(choices=['A', 'B', 'C', 'D'], widget=widgets.RadioSelectHorizontal, label="Seleccione solo UNA respuesta:")
+    icfes_n2 = models.StringField(choices=['A', 'B', 'C', 'D'], widget=widgets.RadioSelectHorizontal, label="Seleccione solo UNA respuesta:")
+    icfes_s1 = models.StringField(choices=['A', 'B', 'C', 'D'], widget=widgets.RadioSelectHorizontal, label="Seleccione solo UNA respuesta:")
+    icfes_s2 = models.StringField(choices=['A', 'B', 'C', 'D'], widget=widgets.RadioSelectHorizontal, label="Seleccione solo UNA respuesta:")
+
+
 
     
 
