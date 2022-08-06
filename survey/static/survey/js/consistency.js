@@ -193,5 +193,125 @@ $(document).ready(function () {
 });
 
 
+document.getElementById("_study").addEventListener("change", function() {
+            let v = parseInt(this.value);
+            if (v < 0) this.value = 0;
+            if (v > 100) this.value = 100;
+            var all_inputs = document.getElementsByClassName('input_number');
+            var sum_prob = Number(0);
+            for(const i of all_inputs) {
+                sum_prob = Number(sum_prob) + Number(i.value);
+            }
+            var html_sum_prob = document.getElementById("sum_prob");
+            html_sum_prob.innerHTML = sum_prob;
+            if(sum_prob == 100) {
+                html_sum_prob.style.color = "green";
+            } else {
+                html_sum_prob.style.color = "red";
+            }
+        });
+
+        document.getElementById("_militar").addEventListener("change", function() {
+            let v = parseInt(this.value);
+            if (v < 0) this.value = 0;
+            if (v > 100) this.value = 100;
+            var all_inputs = document.getElementsByClassName('input_number');
+            var sum_prob = Number(0);
+            for(const i of all_inputs) {
+                sum_prob = Number(sum_prob) + Number(i.value);
+            }
+            var html_sum_prob = document.getElementById("sum_prob");
+            html_sum_prob.innerHTML = sum_prob;
+            if(sum_prob == 100) {
+                html_sum_prob.style.color = "green";
+            } else {
+                html_sum_prob.style.color = "red";
+            }
+        });
+
+        document.getElementById("_worker").addEventListener("change", function() {
+            let v = parseInt(this.value);
+            if (v < 0) this.value = 0;
+            if (v > 100) this.value = 100;
+            var all_inputs = document.getElementsByClassName('input_number');
+            var sum_prob = Number(0);
+            for(const i of all_inputs) {
+                sum_prob = Number(sum_prob) + Number(i.value);
+            }
+            var html_sum_prob = document.getElementById("sum_prob");
+            html_sum_prob.innerHTML = sum_prob;
+            if(sum_prob == 100) {
+                html_sum_prob.style.color = "green";
+            } else {
+                html_sum_prob.style.color = "red";
+            }
+        });
+
+        document.getElementById("_selfemployed").addEventListener("change", function() {
+            let v = parseInt(this.value);
+            if (v < 0) this.value = 0;
+            if (v > 100) this.value = 100;
+            var all_inputs = document.getElementsByClassName('input_number');
+            var sum_prob = Number(0);
+            for(const i of all_inputs) {
+                sum_prob = Number(sum_prob) + Number(i.value);
+            }
+            var html_sum_prob = document.getElementById("sum_prob");
+            html_sum_prob.innerHTML = sum_prob;
+            if(sum_prob == 100) {
+                html_sum_prob.style.color = "green";
+            } else {
+                html_sum_prob.style.color = "red";
+            }
+        });
+
+        document.getElementById("_nonwage").addEventListener("change", function() {
+            let v = parseInt(this.value);
+            if (v < 0) this.value = 0;
+            if (v > 100) this.value = 100;
+            var all_inputs = document.getElementsByClassName('input_number');
+            var sum_prob = Number(0);
+            for(const i of all_inputs) {
+                sum_prob = Number(sum_prob) + Number(i.value);
+            }
+            var html_sum_prob = document.getElementById("sum_prob");
+            html_sum_prob.innerHTML = sum_prob;
+            if(sum_prob == 100) {
+                html_sum_prob.style.color = "green";
+            } else {
+                html_sum_prob.style.color = "red";
+            }
+        });
+
+        document.getElementById("_nini").addEventListener("change", function() {
+            let v = parseInt(this.value);
+            if (v < 0) this.value = 0;
+            if (v > 100) this.value = 100;
+            var all_inputs = document.getElementsByClassName('input_number');
+            var sum_prob = Number(0);
+            for(const i of all_inputs) {
+                sum_prob = Number(sum_prob) + Number(i.value);
+            }
+            var html_sum_prob = document.getElementById("sum_prob");
+            html_sum_prob.innerHTML = sum_prob;
+            if(sum_prob == 100) {
+                html_sum_prob.style.color = "green";
+            } else {
+                html_sum_prob.style.color = "red";
+            }
+        });
+
+
+function enviar(){
+    formulario = document.getElementById("form");
+    var html_sum_prob = document.getElementById("sum_prob");
+    if(Number(document.getElementById("sum_prob").innerHTML) == 100) {
+        formulario.submit();
+    } else {
+        alert('La suma de las probabilidades no da 100, por favor revise');
+    }
+}
+
+
 
 

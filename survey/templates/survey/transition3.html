@@ -1,15 +1,63 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
 
+{% block scripts %}
+    <!-- custom style sheet-->
+    <link href="{% static 'survey/css/styles.css' %}" rel="stylesheet">
+    <!-- functions and more -->
+    <script src="{% static 'survey/js/consistency.js' %}"></script>
+    
+    <script type="text/javascript">
+
+    </script>
+
+    <style>
+        .otree-btn-next {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
 {% block title %}
-    Pregunta Inicial
+    
 {% endblock %}
 
 {% block content %}
-Por favor haga una lista de 5 <i>profesiones</i>, <i>oficios</i> u <i>ocupaciones</i> que considere ideales para usted.
-Escríbalas en orden de importancia, donde <b>1</b> significa que "es lo que más me le gustaría hacer" y <b>5</b> significa que "es la que menos le gustaría hacer":  
+<div class="div_table_center">
+    <table class="table_center">
+        <tr>
+            <th style="background: #CDCDCD;">BAJO</th>
+            <th style="background: #CDCDCD;">MEDIO</th>
+            <th style="background: #C4FFA5;">ALTO</th>
+        </tr>
+        <tr>
+            <td>Menos de 250</td>
+            <td>Entre 251 y 350</td>
+            <td>Más de 350</td>
+        </tr>
+    </table>
+</div>
+<br>
+Suponga que usted obtiene un puntaje global <b>ALTO</b> en el Saber 11, es decir, obtiene más de 350 puntos. Cuál es la probabilidad de que en el siguiente año en junio usted este: 
+
+<table style="padding: 10px; margin: 20px auto">
+    <tr>
+        <th>OCUPACIÓN</th>
+        <th>PROBABILIDAD</th>
+    </tr>
+    {% for opt in shuffle_table %}
+    <tr>
+        <td>{{ opt.label }}</td>
+        <td><input type="number" min="0" max="100" title="Coloque un número entre 0 y 100" class="input_number" name="h{{ opt.name }}" id="{{ opt.name }}"></td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <th>SUMA PROBABILIDADES</th>
+        <th><b id="sum_prob" style="color: red">0</b></th>
+    </tr>
+</table>
 
 
-    {% next_button %}
+<input type="button" value="Siguiente" class="btn_next" onclick="enviar()">
 
 {% endblock %}

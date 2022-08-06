@@ -8,6 +8,7 @@ from otree.api import (
     Currency as c,
     currency_range,
 )
+import random
 
 author = 'Your name here'
 
@@ -15,11 +16,18 @@ doc = """
 Your app description
 """
 
-
 class Constants(BaseConstants):
     name_in_url = 'survey'
     players_per_group = None
     num_rounds = 1
+    table_options = {
+        0: {'label': 'Este estudiando', 'name': '_study'},
+        1: {'label': 'Este prestando servicio militar', 'name': '_militar'},
+        2: {'label': 'Trabaje por un salario para un empleador', 'name': '_worker'},
+        3: {'label': 'Trabaje por cuenta propia', 'name': '_selfemployed'},
+        4: {'label': 'Trabaje con familiares sin remuneración', 'name': '_nonwage'},
+        5: {'label': 'No este trabajando, ni estudiando', 'name': '_nini'}
+    }
 
 
 class Subsession(BaseSubsession):
@@ -53,6 +61,26 @@ class Player(BasePlayer):
     prefer_5000 = models.IntegerField();
 
     grupo_puntaje_global = models.IntegerField();
+
+    # Variables para tablas de 'de la escuela al trabajo'
+    l_study         = models.IntegerField();
+    l_militar       = models.IntegerField();
+    l_worker        = models.IntegerField();
+    l_selfemployed  = models.IntegerField();
+    l_nonwage       = models.IntegerField();
+    l_nini          = models.IntegerField();
+    m_study         = models.IntegerField();
+    m_militar       = models.IntegerField();
+    m_worker        = models.IntegerField();
+    m_selfemployed  = models.IntegerField();
+    m_nonwage       = models.IntegerField();
+    m_nini          = models.IntegerField();
+    h_study         = models.IntegerField();
+    h_militar       = models.IntegerField();
+    h_worker        = models.IntegerField();
+    h_selfemployed  = models.IntegerField();
+    h_nonwage       = models.IntegerField();
+    h_nini          = models.IntegerField();
 
     educ_type = models.IntegerField(
     choices=[
