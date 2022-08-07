@@ -19,6 +19,12 @@ SESSION_CONFIGS = [
        num_demo_participants=1,
        app_sequence=['home', 'question',  ]
     ),
+    dict(
+       name='game',
+       display_name="game",
+       num_demo_participants=1,
+       app_sequence=['game']
+    ),
 ]
 
 
