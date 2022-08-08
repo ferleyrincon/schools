@@ -33,7 +33,7 @@ class barriers(Page):
 
 class income(Page):
     form_model = 'player'
-    form_fields = ['educ_inc1','check_slider_educ_inc1','educ_inc2','check_slider_educ_inc2','educ_inc3','check_slider_educ_inc3','educ_inc4','check_slider_educ_inc4']
+    form_fields = ['educ_inc1','check_slider_educ_inc1','educ_inc2','check_slider_educ_inc2','educ_inc3','check_slider_educ_inc3','educ_inc4','check_slider_educ_inc4','educ_inc5','check_slider_educ_inc5']
 
     def is_displayed(self):
             return self.round_number == 1
@@ -102,7 +102,7 @@ class icfes_s2(Page):
     def is_displayed(self):
         return self.round_number == 1
 
-class home_transitions(Page):
+class instructions_transitions(Page):
     pass
 
 class transition1(Page):
@@ -158,13 +158,16 @@ class transition3(Page):
         }
 
 
-page_sequence = [occupation2, saber11, icfes_m1, education, selfefficacy, barriers, income, home_transitions]
+page_sequence = [occupation2, saber11, education, selfefficacy, barriers, income, instructions_transitions]
 
-#[icfes_m2, icfes_l1, icfes_l2, icfes_n1, icfes_n2, icfes_s1, icfes_s2,]
+#
 
 transitions = [transition1, transition2, transition3]
 random.shuffle(transitions)
 
 for t in transitions:
+    page_sequence.append(t)
+
+for t in [icfes_m1, icfes_m2, icfes_l1, icfes_l2, icfes_n1, icfes_n2, icfes_s1, icfes_s2]:
     page_sequence.append(t)
 

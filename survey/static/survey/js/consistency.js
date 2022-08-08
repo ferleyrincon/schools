@@ -127,16 +127,33 @@ $(document).ready(function () {
 
             efficacy_score.innerHTML = numberWithPoints(slider_input_value);
             check_sli.value = 1;
-/*
-            var next_button = document.getElementsByClassName('otree-btn-next');
-            next_button[0].style.cssText += 'display: block !important;';
-*/
+        }
+    );
+});
+
+$(document).ready(function () {
+    $('.multislider_money').change(
+        function (event) {
+            var slider_id = event.target.id;
+            var slider_input_value = document.getElementById(slider_id).value;
+            var money_score = document.getElementById(slider_id).parentElement.parentElement.parentElement.children[0].children[1].children[0];
+            var check_sli = document.getElementById(slider_id).parentElement.children[1];
+
+            money_score.innerHTML = "$ " + numberWithPoints(slider_input_value);
+            check_sli.value = 1;
         }
     );
 });
 
 $(document).ready(function () {
     $('input[class=multislider_efficacy]').on('input change', function (event) {
+        var slider_id = event.target.id;
+        $('input[id='+slider_id).addClass('myclass');
+    });
+});
+
+$(document).ready(function () {
+    $('input[class=multislider_money]').on('input change', function (event) {
         var slider_id = event.target.id;
         $('input[id='+slider_id).addClass('myclass');
     });

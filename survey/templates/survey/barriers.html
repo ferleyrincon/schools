@@ -8,7 +8,7 @@
     <script src="{% static 'survey/js/consistency.js' %}"></script>
     <script>
         // Cambiar por el total de sliders que haya en la página
-        var total_check = 4;
+        var total_check = 7;
         $(document).ready(function () {
             $('input[class=multislider_efficacy]').on('input change', function (event) {
                 var all_checks_sliders = document.getElementsByClassName('check_slider');
@@ -169,7 +169,7 @@
                     <tr>
                         <td class="td_text_slider">Totalmente Incapaz</td>
                         <td class="td_slider">
-                            <input type="range" name="educ_barrier2" value="" min="0" max="100" step="1" id="multislider_educ_barrier5" class="multislider_efficacy" required>
+                            <input type="range" name="educ_barrier5" value="" min="0" max="100" step="1" id="multislider_educ_barrier5" class="multislider_efficacy" required>
                             <input type="hidden" name="check_slider_educ_barrier5" value="" id="id_check_slider_educ_barrier5" class="check_slider" required>
                         </td>
                         <td class="td_text_slider">Totalmente Capaz</td>
