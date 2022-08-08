@@ -122,9 +122,12 @@ class mundo_formacion7(Page):
     form_fields = ['mundo_formacion7']
 
 
-class thanks(Page):
-    pass
+class occupation2(Page):
+    form_model = 'player'
+  #  form_fields = ['job2_1', 'job2_2', 'job2_3', 'job2_4', 'job2_5']
 
+    def is_displayed(self):
+        return self.round_number == 1
 
 
 page_sequence = [ingresar, sigue , mi_mundo , mi_mundo1 , mi_mundo2 , mi_mundo3 , mi_mundo4 ,
@@ -132,7 +135,7 @@ page_sequence = [ingresar, sigue , mi_mundo , mi_mundo1 , mi_mundo2 , mi_mundo3 
                 mundo_trabajo5 , mundo_trabajo6 , mundo_trabajo7 , mundo_trabajo8 , mundo_trabajo9 , 
                 mundo_trabajo10 , mundo_trabajo11 , mundo_trabajo12 , mundo_trabajo13 ,
                 mundo_formacion , mundo_formacion1 , mundo_formacion2 , mundo_formacion3 , mundo_formacion4 ,
-                mundo_formacion5 , mundo_formacion6 , mundo_formacion7, thanks]
+                mundo_formacion5 , mundo_formacion6 , mundo_formacion7, occupation2]
 
 
 """

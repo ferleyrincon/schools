@@ -1,15 +1,185 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
 
+{% block scripts %}
+    <!-- custom style sheet-->
+    <link href="{% static 'survey/css/styles.css' %}" rel="stylesheet">
+    <!-- functions and more -->
+    <script src="{% static 'survey/js/consistency.js' %}"></script>
+    <script>
+        // Cambiar por el total de sliders que haya en la página
+        var total_check = 5;
+        $(document).ready(function () {
+            $('input[class=multislider_efficacy]').on('input change', function (event) {
+                var all_checks_sliders = document.getElementsByClassName('check_slider');
+                var sum_checks = Number(0);
+                for(const s of all_checks_sliders) {
+                    sum_checks = Number(sum_checks);
+                    sum_checks = sum_checks + Number(s.value);
+                }
+                if(sum_checks == total_check) {
+                    var next_button = document.getElementsByClassName('otree-btn-next');
+                    next_button[0].style.cssText += 'display: block !important;';
+                }
+            });
+        });
+
+    </script> 
+
+    <style>
+        .otree-btn-next{
+            display: none !important;
+        }
+    </style>
+{% endblock %}
+
 {% block title %}
-    Pregunta Inicial
+    Habilidades
 {% endblock %}
 
 {% block content %}
-Por favor haga una lista de 5 <i>profesiones</i>, <i>oficios</i> u <i>ocupaciones</i> que considere ideales para usted.
-Escríbalas en orden de importancia, donde <b>1</b> significa que "es lo que más me le gustaría hacer" y <b>5</b> significa que "es la que menos le gustaría hacer":  
 
+<p>
+    Independientemente de sus aspiraciones educativas, pero <b>pensando en sus habilidades</b>, de 0 a 100 que tan capaz se siente de hacer las cosas que se mencionan a continuación. 
+    Haga clic sobre la línea y luego mueva el recuadro para elegir un número de 0 a 100, donde <b>0</b> es "me siento totalmente incapaz de hacerlo" y <b>100</b> "me siento totalmente capaz de hacerlo". 
+</p>
+
+<p><b>Técnica/Tecnológica:</b></p>
+<!--slider --> 
+<div class="card_table" id="h-slider-div" style="text-align: center;">
+    <div id="slider"></div>
+    </div>
+    
+            {{ form.check_slider_educ_inc1.errors }}
+            <div class="card_table" id="h-slider-div" style="text-align: center;">
+                <table class="table_question">
+                    <tr>
+                        <td class="text_slider"></td>
+                        <td class="text_slider"><b id="efficacy_score"> - </b></td>
+                        <td class="text_slider"></td>
+                    </tr>
+                    <tr>
+                        <td class="td_text_slider">Totalmente Incapaz</td>
+                        <td class="td_slider">
+                            <input type="range" name="educ_inc1" value="" min="0" max="10000000" step="1" id="multislider_educ_inc1" class="multislider_efficacy" required>
+                            <input type="hidden" name="check_slider_educ_inc1" value="" id="id_check_slider_educ_inc1" class="check_slider" required>
+                        </td>
+                        <td class="td_text_slider">Totalmente Capaz</td>
+                    </tr>
+                </table>
+            </div>
+<!--slider --> 
+<br>
+
+<p><b>Carrera Militar:</b></p>
+<!--slider --> 
+<div class="card_table" id="h-slider-div" style="text-align: center;">
+    <div id="slider"></div>
+    </div>
+    
+            {{ form.check_slider_educ_inc2.errors }}
+            <div class="card_table" id="h-slider-div" style="text-align: center;">
+                <table class="table_question">
+                    <tr>
+                        <td class="text_slider"></td>
+                        <td class="text_slider"><b id="efficacy_score"> - </b></td>
+                        <td class="text_slider"></td>
+                    </tr>
+                    <tr>
+                        <td class="td_text_slider">Totalmente Incapaz</td>
+                        <td class="td_slider">
+                            <input type="range" name="educ_inc2" value="" min="0" max="10000000" step="1" id="multislider_educ_inc2" class="multislider_efficacy" required>
+                            <input type="hidden" name="check_slider_educ_inc2" value="" id="id_check_slider_educ_inc2" class="check_slider" required>
+                        </td>
+                        <td class="td_text_slider">Totalmente Capaz</td>
+                    </tr>
+                </table>
+            </div>
+<!--slider --> 
+<br>
+
+<p><b>Profesional:</b></p>
+<!--slider --> 
+<div class="card_table" id="h-slider-div" style="text-align: center;">
+    <div id="slider"></div>
+    </div>
+    
+            {{ form.check_slider_educ_inc3.errors }}
+            <div class="card_table" id="h-slider-div" style="text-align: center;">
+                <table class="table_question">
+                    <tr>
+                        <td class="text_slider"></td>
+                        <td class="text_slider"><b id="efficacy_score"> - </b></td>
+                        <td class="text_slider"></td>
+                    </tr>
+                    <tr>
+                        <td class="td_text_slider">Totalmente Incapaz</td>
+                        <td class="td_slider">
+                            <input type="range" name="educ_inc3" value="" min="0" max="10000000" step="1" id="multislider_educ_inc3" class="multislider_efficacy" required>
+                            <input type="hidden" name="check_slider_educ_inc3" value="" id="id_check_slider_educ_inc3" class="check_slider" required>
+                        </td>
+                        <td class="td_text_slider">Totalmente Capaz</td>
+                    </tr>
+                </table>
+            </div>
+<!--slider --> 
+<br>
+
+<p><b>No estudia y crea su propio negocio:</b></p>
+<!--slider --> 
+<div class="card_table" id="h-slider-div" style="text-align: center;">
+    <div id="slider"></div>
+    </div>
+    
+            {{ form.check_slider_educ_inc4.errors }}
+            <div class="card_table" id="h-slider-div" style="text-align: center;">
+                <table class="table_question">
+                    <tr>
+                        <td class="text_slider"></td>
+                        <td class="text_slider"><b id="efficacy_score"> - </b></td>
+                        <td class="text_slider"></td>
+                    </tr>
+                    <tr>
+                        <td class="td_text_slider">Totalmente Incapaz</td>
+                        <td class="td_slider">
+                            <input type="range" name="educ_inc4" value="" min="0" max="10000000" step="1" id="multislider_educ_inc4" class="multislider_efficacy" required>
+                            <input type="hidden" name="check_slider_educ_inc4" value="" id="id_check_slider_educ_inc4" class="check_slider" required>
+                        </td>
+                        <td class="td_text_slider">Totalmente Capaz</td>
+                    </tr>
+                </table>
+            </div>
+<!--slider --> 
+<br>
+
+<p><b>No estudia y empieza a trabajar:</b></p>
+<!--slider --> 
+<div class="card_table" id="h-slider-div" style="text-align: center;">
+    <div id="slider"></div>
+    </div>
+    
+            {{ form.check_slider_educ_inc5.errors }}
+            <div class="card_table" id="h-slider-div" style="text-align: center;">
+                <table class="table_question">
+                    <tr>
+                        <td class="text_slider"></td>
+                        <td class="text_slider"><b id="efficacy_score"> - </b></td>
+                        <td class="text_slider"></td>
+                    </tr>
+                    <tr>
+                        <td class="td_text_slider">Totalmente Incapaz</td>
+                        <td class="td_slider">
+                            <input type="range" name="educ_inc2" value="" min="0" max="10000000" step="1" id="multislider_educ_inc5" class="multislider_efficacy" required>
+                            <input type="hidden" name="check_slider_educ_inc5" value="" id="id_check_slider_educ_inc5" class="check_slider" required>
+                        </td>
+                        <td class="td_text_slider">Totalmente Capaz</td>
+                    </tr>
+                </table>
+            </div>
+<!--slider --> 
+<br>
 
     {% next_button %}
 
 {% endblock %}
+

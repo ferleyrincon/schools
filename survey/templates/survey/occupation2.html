@@ -6,10 +6,8 @@
 {% endblock %}
 
 {% block content %}
-<p>Por favor haga una lista de 5 <i>profesiones</i>, <i>oficios</i> u <i>ocupaciones</i> que considere ideales para usted.<br>
-Escríbalas en orden de importancia, donde <b>1</b> significa que "es lo que más me le gustaría hacer" y <b>5</b> significa que "es la que menos le gustaría hacer":</p>  
 
-<p><b>¿Para hacer lo que más le gusta es necesaria una carrera?:</b></p>
+<p><b>¿Qué tipo de carrera considera necesaria para hacer lo que más le gustaría?:</b></p>
 <div class="wrapper">
     <p>           
         <table>
@@ -31,14 +29,14 @@ Escríbalas en orden de importancia, donde <b>1</b> significa que "es lo que má
                 <td style="width: 20px; text-align: center; vertical-align: middle;">
                     <input type="radio" id="etype_opc3" name="educ_type" value="3">
                 </td><td style="text-align: left; vertical-align: middle;">
-                    <label for="etype_opc3">Militar</label><br>
+                    <label for="etype_opc3">Profesional</label><br>
                 </td>
             </tr>
             <tr>
                 <td style="width: 20px; text-align: center; vertical-align: middle;">
                     <input type="radio" id="etype_opc3" name="educ_type" value="3">
                 </td><td style="text-align: left; vertical-align: middle;">
-                    <label for="etype_opc3">Profesional</label><br>
+                    <label for="etype_opc3">Militar</label><br>
                 </td>
             </tr>
             <tr>
@@ -51,8 +49,11 @@ Escríbalas en orden de importancia, donde <b>1</b> significa que "es lo que má
         </table>
     </p>
 
-    <p><b>Escriba el nombre de la institución educativa en la que desea estudiar: </b></p>
-    <textarea name="educ_university" id="educ_university" class="form-control text_input" placeholder="Coloque el nombre aquí por favor" required style="margin-bottom: 10px;"></textarea>
+    <p><b>Escriba el nombre de la institución educativa en la que desea estudiar. También puede escribir "NO SÉ". </b></p>
+    <textarea name="educ_university" id="educ_university" class="form-control text_input" placeholder="Coloque su respuesta aquí por favor" required style="margin-bottom: 10px;"></textarea>
+
+    <p><b>¿Tiene una segunda opción? En caso de que sí, escriba el nombre de la institución educativa donde también le gustaría estudiar. También puede escribir "NO SÉ" o "NO TENGO SEGUNDA OPCIÓN": </b></p>
+    <textarea name="educ_university2" id="educ_university2" class="form-control text_input" placeholder="Coloque su respuesta aquí por favor" required style="margin-bottom: 10px;"></textarea>
 
     {% next_button %}
 

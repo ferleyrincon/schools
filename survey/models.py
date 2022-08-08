@@ -21,11 +21,11 @@ class Constants(BaseConstants):
     players_per_group = None
     num_rounds = 1
     table_options = {
-        0: {'label': 'Este estudiando', 'name': '_study'},
-        1: {'label': 'Este prestando servicio militar', 'name': '_militar'},
-        2: {'label': 'Trabaje por un salario para un empleador', 'name': '_worker'},
-        3: {'label': 'Trabaje por cuenta propia', 'name': '_selfemployed'},
-        4: {'label': 'Trabaje con familiares sin remuneración', 'name': '_nonwage'},
+        0: {'label': 'Estudiando', 'name': '_study'},
+        1: {'label': 'Prestando servicio militar', 'name': '_militar'},
+        2: {'label': 'Trabajando por un salario para un empleador', 'name': '_worker'},
+        3: {'label': 'Trabajando por cuenta propia', 'name': '_selfemployed'},
+        4: {'label': 'Trabajando con familiares sin remuneración', 'name': '_nonwage'},
         5: {'label': 'No este trabajando, ni estudiando', 'name': '_nini'}
     }
 
@@ -39,12 +39,6 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    job2_1 = models.StringField()
-    job2_2 = models.StringField()
-    job2_3 = models.StringField()
-    job2_4 = models.StringField()
-    job2_5 = models.StringField()
-
     prueba_20000 = models.StringField();
     prueba_15000 = models.StringField();
     prueba_10000 = models.StringField();
@@ -90,23 +84,72 @@ class Player(BasePlayer):
         [4,'Ninguna']
     ], label="¿Para hacer lo que más le gusta es necesaria una carrera?")
 
-    educ_university = models.StringField(label="Escriba el nombre de la institución en la que desea estudiar:")
+    educ_university = models.StringField(label="Escriba el nombre de la institución educativa en la que desea estudiar. También puede escribir NO SÉ")
+    educ_university2 = models.StringField(label="¿Tiene una segunda opción? En caso de que sí, escriba el nombre de la institución educativa donde también le gustaría estudiar. También puede escribir NO SÉ o NO TENGO SEGUNDA OPCIÓN:")
 
-    efficacy1 =  models.IntegerField()
+    efficacy =  models.IntegerField()  #Pruebas
+    check_slider_efficacy =  models.IntegerField()
+
+    efficacy1 =  models.IntegerField() #Técnico
     check_slider_efficacy1 =  models.IntegerField()
 
-    efficacy2 =  models.IntegerField()
+    efficacy2 =  models.IntegerField() #Militar
     check_slider_efficacy2 =  models.IntegerField()
 
-    efficacy3 =  models.IntegerField()
+    efficacy3 =  models.IntegerField() #Emprendedor
     check_slider_efficacy3 =  models.IntegerField()
 
-    efficacy4 =  models.IntegerField()
+    efficacy4 =  models.IntegerField() #Título profesional
     check_slider_efficacy4 =  models.IntegerField()
+
+
+    educ_inc1 =  models.IntegerField() 
+    check_slider_educ_inc1 =  models.IntegerField()
+
+    educ_inc2 =  models.IntegerField() 
+    check_slider_educ_inc2 =  models.IntegerField()
+
+    educ_inc3 =  models.IntegerField() 
+    check_slider_educ_inc3 =  models.IntegerField()
+
+    educ_inc4 =  models.IntegerField() 
+    check_slider_educ_inc4 =  models.IntegerField()
+
+    educ_inc5 =  models.IntegerField() 
+    check_slider_educ_inc5 =  models.IntegerField()
+
+
 
     educsup =  models.IntegerField()
     check_slider_educsup=  models.IntegerField()
 
+    educ_barrier1 =  models.IntegerField()
+    check_slider_educ_barrier1=  models.IntegerField()
+
+    educ_barrier2 =  models.IntegerField()
+    check_slider_educ_barrier2=  models.IntegerField()
+
+    educ_barrier3 =  models.IntegerField()
+    check_slider_educ_barrier3=  models.IntegerField()
+
+    educ_barrier4 =  models.IntegerField()
+    check_slider_educ_barrier4=  models.IntegerField()
+
+    educ_barrier5 =  models.IntegerField()
+    check_slider_educ_barrier5=  models.IntegerField()
+
+    educ_barrier6 =  models.IntegerField()
+    check_slider_educ_barrier6=  models.IntegerField()
+
+    educ_barrier7 =  models.IntegerField()
+    check_slider_educ_barrier7=  models.IntegerField()
+
+
+    p_vocational = models.IntegerField(
+    choices=[
+        [1, 'Sí'],
+        [2, 'No'],
+    ], label="1. ¿Ha participado antes en alguna actividad de orientación vocacional/profesional?")
 
     p_sex = models.IntegerField(
     choices=[
@@ -189,14 +232,6 @@ class Player(BasePlayer):
         [4, 'Malas'],
     ], label="13. ¿Cómo describiría las condiciones económicas de su hogar?")
 
-    p_poverty = models.IntegerField(
-    choices=[
-        [1, 'Muy buenas'],
-        [2, 'Buenas'],
-        [3, 'Regulares'],
-        [4, 'Malas'],
-    ], label="13. ¿Cómo describiría las condiciones económicas de su hogar?")
-
     p_care = models.IntegerField(
     choices=[1, 2, 3, 4, 5],
     widget=widgets.RadioSelect,
@@ -228,6 +263,16 @@ class Player(BasePlayer):
         [6,'Preparando a los hijos para que puedan ayudarlos en su vejez'],
         [7,'Nada'],
     ], label="17. ¿Qué están haciendo (hicieron) sus padres para mantenerse económicamente en la vejez?")
+
+    p_preicfes = models.IntegerField(
+    choices=[
+        [1, 'Sí'],
+        [2, 'Sí, en el colegio y NO tuve que pagar'],
+        [3, 'Sí, en el colegio y tuve que pagar'],
+        [4, 'Sí, fuera del colegio y NO tuve que pagar'],
+        [5, 'Sí, fuera del colegio y tuve que pagar'],
+
+    ], label="16. ¿Ha participado antes en alguna actividad de preparación para el Saber 11 (pre-icfes)?")
 
     icfes_m1 = models.StringField(choices=['A', 'B', 'C', 'D'], widget=widgets.RadioSelectHorizontal, label="Seleccione solo UNA respuesta:")
     icfes_m2 = models.StringField(choices=['A', 'B', 'C', 'D'], widget=widgets.RadioSelectHorizontal, label="Seleccione solo UNA respuesta:")

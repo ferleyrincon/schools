@@ -1,0 +1,14 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+    Aspiraciones ocupacionales
+{% endblock %}
+
+{% block content %}
+<p>Teniendo en cuenta la actividad anterior por favor haga nuevamente una lista de 3 <i>profesiones</i>, <i>oficios</i> u <i>ocupaciones</i> que considere ideales para usted.<br>
+    Escríbalas en orden de importancia, donde <b>1</b> significa que "es lo que más me le gustaría hacer" y <b>3</b> significa que "es la que menos le gustaría hacer":</p> 
+     
+    {% next_button %}
+
+{% endblock %}

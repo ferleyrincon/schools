@@ -37,6 +37,12 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    job2_1 = models.StringField()
+    job2_2 = models.StringField()
+    job2_3 = models.StringField()
+    job2_4 = models.StringField()
+    job2_5 = models.StringField()
+    
     mi_mundo1 = models.StringField()
     mi_mundo2 = models.StringField()
     mi_mundo3 = models.StringField()
@@ -62,3 +68,13 @@ class Player(BasePlayer):
     mundo_formacion5 = models.StringField()
     mundo_formacion6 = models.StringField()
     mundo_formacion7 = models.StringField()
+
+    educ_type = models.IntegerField(
+    choices=[
+        [1,'Técnica'],
+        [2,'Tecnológica'],
+        [3,'Profesional'],
+        [4,'Ninguna']
+    ], label="¿Para hacer lo que más le gusta es necesaria una carrera?")
+
+    educ_university = models.StringField(label="Escriba el nombre de la institución en la que desea estudiar:")

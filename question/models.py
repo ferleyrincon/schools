@@ -32,4 +32,14 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
-    pass
+    test_job1 = models.StringField()
+    test_job2 = models.StringField()
+    test_job3 = models.StringField()
+    test_job4 = models.StringField()
+    test_job5 = models.StringField()
+
+    job2_1 = models.StringField()
+    job2_2 = models.StringField()
+    job2_3 = models.StringField()
+    job2_4 = models.StringField()
+    job2_5 = models.StringField()

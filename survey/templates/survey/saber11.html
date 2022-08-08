@@ -209,6 +209,25 @@
         width: 80px;
     }
     </style>
+
+    <!-- custom style sheet-->
+    <link href="{% static 'survey/css/styles.css' %}" rel="stylesheet">
+    <!-- functions and more -->
+    <script src="{% static 'survey/js/consistency.js' %}"></script>
+    <script>
+        $(document).ready(function () {
+            $('input[id=efficacy]').on('input change', function () {
+                $('input[id=efficacy]').addClass('myclass');
+            });
+        });
+    </script> 
+
+    <style>
+        .otree-btn-next{
+            display: none !important;
+        }
+    </style>
+
 {% endblock %}
 
 {% block title %}
@@ -217,18 +236,33 @@
 
 {% block content %}
 
-<p>Llene la tabla con la prueba, el puntaje que cree va a lograr y su preferencia.</p>
+<p>Ahora va a llenar una tabla donde usted va a predecir su puntaje en el examen <i>Saber 11</i> como si estuviera en una apuesta. <br>
+    Las ganancias las entregaremos en una segunda visita al colegio, luego de la publicación de los resultados del examen por parte del ICFES.</p>
 
-<ul>
-<li> <b>Pruebas:</b> Recuerde que las pruebas que componen el examen <i>Saber 11</i> son: Matemáticas, Lectura Crítica, Sociales y Ciudadanas, Ciencias Naturales. 
-    <u>Debe arrastrar una prueba a cada casilla.</u></li> 
-<li><b>Puntaje esperado Prueba:</b> <u>Escriba un número entre 0 y 100</u> para indicar el puntaje que cree va a lograr en cada prueba. Donde <b>0</b> es el puntaje más bajo y <b>100</b> es el puntaje más alto.<br> 
-    En una actividad posterior a la publicación de los resultados individuales que hace el ICFES, <i>recibirá un pago en efectivo si el puntaje que usted escriba como PUNTAJE ESPERADO esta <span style="color: #ff0000;"><b>máximo</b></span> 10 puntos por debajo o 10 puntos por encima de su PUNTAJE REAL de la prueba.</i></li>
+<p>Las reglas de la apuesta son las siguientes:</p>
+<ol>
+<li> 
+    El examen tiene cuatro pruebas: Matemáticas, Lectura Crítica, Sociales y Ciudadanas, Ciencias Naturales.<br> 
+    Cada prueba se califica de <b>0</b> (puntaje más bajo) a <b>100</b> (puntaje más alto).
+</li>
+<li> 
+    Usted debe ordenar las pruebas según qué tan <i>confiable</i> es su predicción sobre cómo le va a ir.<br>
+    En la que tenga más seguridad de su puntaje, póngala en la primera fila (que paga $20.000 si acierta). <br> 
+    En la segunda en la que tenga más seguridad sobre su puntaje, póngala en la segunda fila (que paga $15.000 si acierta), y así sucesivamente.
+</li>
+<li> 
+    Para cada prueba, escriba su <i>PUNTAJE ESPERADO</i> como un número entre <b>0</b> y <b>100</b>. Marcaremos como un acierto, y recibirá el pago correspondiente, 
+    <i>si el puntaje que usted escriba como PUNTAJE ESPERADO este máximo <b>10 puntos por debajo o por encima</b> de su PUNTAJE REAL de la prueba</u>.</i>
+</li>
+<li>
+    Cuéntenos, de acuerdo a sus gustos por los contenidos de cada prueba, cómo las organizaría desde su menos favorita, con el número <b>1</b>, hasta la más favorita, con el número <b>4</b>. 
+    <u>Debe arrastrar un número a cada casilla</u> de la última columna, y no se pueden repetir números. 
+</li>
+</ol>
 
-<li><b>Califique su preferencia:</b> Asigne una calificación de 1 a 4 a cada prueba. Donde <b>1</b> es la prueba menos preferida y <b>4</b> la prueba más preferida. <u>Debe arrastrar un número a cada casilla</u>, no se puede asignar un número más de una vez.</li> 
-<p></p>
-
-</ul>
+<p><b>Nota:</b>tenga en cuenta que su predicción más confiable no necesariamente debe asignarse a su prueba favorita.
+    Por ejemplo, puede que su prueba favorita sea <i>Matemáticas</i> (en cuyo caso le asignaría un 4 en la última columna), 
+    pero tiene más confianza en cuál puntaje cree que sacará en <i>Lectura crítica</i> (en cuyo caso esta prueba iría en la primera fila).</p>
 
 <h5>Tabla de respuestas: arrastre y escriba</h5>
 
@@ -340,12 +374,12 @@
 <h5>Puntaje global</h5>
 
 <p>
-    Cuando se publiquen los resultados del examen <i>Saber 11</i>, vamos a ordenar a los estudiantes de su SALÓN en (4) cuatro grupos según el puntaje global en las pruebas. 
-    Cada grupo tendrá igual número de personas.  
+    Cuando se publiquen los resultados del examen <i>Saber 11</i>, vamos a ordenar a los estudiantes de SU SALÓN en (4) cuatro grupos según el puntaje global en las pruebas. 
+    Cada grupo tendrá igual número de personas. También queremos conocer su predicción  
 </p>
 
 <p>
-    Usted en que posición cree que será clasificado. Si acierta el grupo en el que quedará recibirá <b>$5.000</b> adicionales.
+    ¿Usted en que posición cree que será clasificado?. Si acierta el grupo en el que quedará recibirá <b>$5.000</b> adicionales.
 </p>
 <table class="tabla">
     <tr>
@@ -386,8 +420,36 @@
 
 </div>
 
+<h5>Capacidad para acertar</h5>
 
+<p>
+    Queremos saber qué tan capaz se siente de acertar en sus puntajes de las pruebas. ¿En cuántas pruebas cree que su <i>PUNTAJE ESPERADO</i> estará a menos de <b>10</b> puntos (por encima o por debajo) de su <i>PUNTAJE REAL</i>?
+</p>
 
+<!--slider --> 
+<div class="card_table" id="h-slider-div" style="text-align: center;">
+    <div id="slider"></div>
+    </div>
+    
+            {{ form.check_slider_efficacy.errors }}
+            <div class="card_table" id="h-slider-div" style="text-align: center;">
+                <table class="table_question">
+                    <tr>
+                        <td class="text_slider"><b id="d_pa"></b></td>
+                        <td class="text_slider"><b id="efficacy_score"> - </b></td>
+                        <td class="text_slider"><b id="d_pb"></b></td>
+                    </tr>
+                    <tr>
+                        <td class="td_text_slider"><br>Ninguna</td>
+                        <td class="td_slider">
+                            <input type="range" name="efficacy" value="" min="0" max="4" step="1" id="efficay" class="slider_efficacy" required>
+                            <input type="hidden" name="check_slider_efficacy" value="" id="id_check_slider_efficacy" required>
+                        </td>
+                        <td class="td_text_slider"><br>Todas</td>
+                    </tr>
+                </table>
+            </div>
+<!--slider --> 
 
     {% next_button %}
 

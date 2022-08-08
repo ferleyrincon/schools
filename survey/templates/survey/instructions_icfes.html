@@ -2,147 +2,16 @@
 {% load otree static %}
 
 {% block title %}
-    Torneo
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
-    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    Preguntas ICFES
 {% endblock %}
 
 {% block content %}
+<p>
+    En las siguientes preguntas usted responderá <b>8</b> preguntas similares a las que se incluyen en el exámen <i>Saber 11</i>.<br>
+    <b>2</b> de Matemáticas, <b>2</b> de Lectura Crítica, <b>2</b> de Sociales y Ciudadanas, <b>2</b> de Ciencias Naturales
+    En una actividad posterior le preguntaremos a sus acudientes sobre cómo creen que fue su desempeño en esta prueba. 
+</p>
 
-    <p> 
-        Usted ahora participará en un torneo por 5 rondas.
-    </p>
-        
-    <p> 
-        En cada ronda hará parte de un grupo de cuatro (4) personas: dos (2) tendrán un <i>Contrato A</i> y dos (2) un <i>Contrato B</i>.<br>
-        <b>Los otros tres (3) miembros de su grupo irán cambiando ronda tras ronda. Siempre habrá dos personas con el <i>Contrato A</i> y dos con el <i>Contrato B</i> en cada grupo</b>. 
-    </p> 
-
-    <p> En cada ronda tendrá 120 segundos para realizar el mayor número de <i>secuencias</i> que pueda. El pago por cada <i>secuencia</i> correcta dependerá del contrato al que fue asignado en la ronda anterior: </p>
-    
-    <ul>
-        <li> <i>Contrato A</i>: recibe $3.000 por <i>secuencia</i> correcta. </li>
-        <li> <i>Contrato B</i>: recibe $1.500 por <i>secuencia</i> correcta. </li>
-    </ul>
-
-    <h5> Ranking y probabilidad de tener un Contrato A en la siguiente ronda</h5>
-    <p> 
-        Este es un torneo porque hace un ranking de los participantes con <i>Contrato A</i> y <i>Contrato B</i> de su grupo 
-        {% if discrimination > 0 %}
-            , y define quién tendrá los contratos la próxima ronda
-        {% endif %}:
-    </p>
-
-    <style>
-        table {
-          border-collapse: collapse;
-          width: 80%;
-        }
-        
-        td, th {
-          border: 1px solid #dddddd;
-          text-align: center;
-          padding: 8px;
-        }
-        
-        tr:nth-child(even) {
-          background-color: #dddddd;
-        }
-        table.center {
-          margin-left: auto; 
-          margin-right: auto;
-        }
-        </style>
-    
-    <table class="center">
-
-        <tr>      
-          <th scope="row">Ranking</th>      
-          <th>Puesto y contrato</th>      
-          <th>Probabilidad Contrato A</th>      
-        </tr>
-      
-        <tr>
-      
-          <th>1</th>      
-          <td>Primer puesto de los participantes con <i>Contrato A</i></td>      
-          <td>
-                {% if discrimination == 0 %}
-                50%
-                {% else %}
-                    100%
-                {% endif %}  
-          </td>                
-        </tr>      
-        <tr>      
-            <th>2</th>        
-            <td>Segundo puesto de los participantes con <i>Contrato A</i></td>        
-            <td>
-                {% if discrimination == 0 %}
-                    50%
-                {% else %}
-                    Reclasificación
-                {% endif %} 
-            </td>                  
-        </tr>
-        <tr>      
-            <th>3</th>
-            <td>Primer puesto de los participantes con <i>Contrato B</i></td>        
-            <td>
-                {% if discrimination == 0 %}
-                    50%
-                {% else %}
-                    Reclasificación
-                {% endif %}
-            </td>                  
-        </tr>
-
-        <tr>
-            <th>4</th>        
-            <td>Segundo puesto de los participantes con <i>Contrato B</i></td>        
-            <td>
-                {% if discrimination == 0 %}
-                    50%
-                {% else %}
-                    0%
-                {% endif %}  
-            </td>            
-        </tr>
-      
-      </table>
-    <p> Si dos participantes con el mismo contrato tienen el mismo número de <i>secuencias</i> completas, el primer y segundo puesto del contrato se asignan al azar. </p>
-    
-    <p> Según la tercera columna de la tabla, 
-        {% if discrimination == 0 %}
-            <b>la probabilidad de cambiar de contrato es la misma para todos los participantes.</b><br>
-            Es decir, es igual de probable que reciba el <i>Contrato A</i> o el <i>Contrato B</i>. 
-      
-        {% else %}
-        <ul>
-            <li> El participante en el Ranking <b>1</b> mantiene el <i>Contrato A</i>, y el participante en el Ranking <b>4</b> mantiene el <i>Contrato B</i>.</li>
-            <li> Los participantes en el Ranking <b>2</b> y <b>3</b> pueden cambiar de contrato en la <i>Reclasificación.</i> </li>
-        </ul>
-        </p> 
-               
-            <h5> ¿En qué consiste la Reclasificación? </h5>
-
-                <p>La asignación del <i>Contrato A</i> depende del número de secuencias correctas que hayan realizado los participantes en el Ranking <b>2</b> y <b>3</b>. <br>
-                                    
-                    {% if discrimination == 1 %}
-                        <b>Se queda con el <i>Contrato A</i> el que haya completado más <i>secuencias</i> entre los participantes en la Reclasificación.</b> <br> 
-                        Si ambos hacen la misma cantidad de secuencias correctas, la probabilidad quedarse con el <i>Contrato A</i> es la misma para ambos los participantes (50%).
-                    {% else %}
-                        Quedarse con el <i>Contrato A</i> depende de un sorteo. 
-                        <b>Entre más secuencias correctas respecto a las del otro participante en la Reclasificación, más chances de ganar.</b><br>
-                        Si ambos hacen la misma cantidad de secuencias correctas, la probabilidad quedarse con el <i>Contrato A</i> es la misma para ambos los participantes (50%). <br>
-
-                        Así se ve la fórmula exacta: $$\text{Probabilidad Contrato A}  = {\text{Sus tareas }  \over \text{Sus tareas }  + \text{Tareas del otro} }.$$
-                            
-                    {% endif %}
-                </p> 
-        {% endif %} 
-    {% next_button %}
-
-
+<p> Haga <I>clic</I> en "Siguiente" para comenzar.</p>
 
 {% endblock %}
