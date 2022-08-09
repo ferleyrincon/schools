@@ -2,8 +2,11 @@
 {% load otree static %}
 {% block scripts %}
     <!-- custom style sheet-->
-    <!-- <link href="{% static 'css/schools.css' %}" rel="stylesheet"> -->
-    <script src="{% static 'js/schools.js' %}"></script>
+    <link href="{% static 'survey/css/styles.css' %}" rel="stylesheet">
+    <!-- functions and more -->
+    <script src="{% static 'survey/js/consistency.js' %}"></script>
+
+
     <script type="text/javascript">
         $(document).ready(function () {
             formulario = document.getElementById("form");
@@ -87,9 +90,15 @@
             }
         }
 
-        function enviar(){
+        function enviar_local(){
             formulario.submit();
         }
+
+        $(document).ready(function () {
+            $('input[id=efficacy]').on('input change', function () {
+                $('input[id=efficacy]').addClass('myclass');
+            });
+        });
     </script>
     <style>
     .otree-btn-next {
@@ -208,24 +217,9 @@
         height: 33px;
         width: 80px;
     }
-    </style>
-
-    <!-- custom style sheet-->
-    <link href="{% static 'survey/css/styles.css' %}" rel="stylesheet">
-    <!-- functions and more -->
-    <script src="{% static 'survey/js/consistency.js' %}"></script>
-    <script>
-        $(document).ready(function () {
-            $('input[id=efficacy]').on('input change', function () {
-                $('input[id=efficacy]').addClass('myclass');
-            });
-        });
-    </script> 
-
-    <style>
-        .otree-btn-next{
-            display: none !important;
-        }
+    .otree-btn-next{
+        display: none !important;
+    }
     </style>
 
 {% endblock %}
@@ -445,8 +439,8 @@
                     <tr>
                         <td class="td_text_slider">Ninguna</td>
                         <td class="td_slider">
-                            <input type="range" name="efficacy" value="" min="0" max="4" step="1" id="efficay" class="slider_efficacy" required>
-                            <input type="hidden" name="check_slider_efficacy" value="" id="id_check_slider_efficacy" required>
+                            <input type="range" name="efficacy" value="" min="0" max="4" step="1" id="efficacy" class="slider_efficacy" required>
+                            <input type="hidden" name="check_slider_efficacy" value="" id="id_check_slider_educsup" required>
                         </td>
                         <td class="td_text_slider">Todas</td>
                     </tr>
@@ -454,9 +448,7 @@
             </div>
 <!--slider --> 
 
-    {% next_button %}
-
-<input type="button" value="Siguiente" class="btn_next" onclick="enviar()">
+<input type="button" value="Siguiente" class="btn_next" onclick="enviar_local()">
 
 
 {% endblock %}
