@@ -2,16 +2,16 @@ from os import environ
 
 SESSION_CONFIGS = [
        dict(
-       name='question1',
-       display_name="survey",
+       name='cuestion',
+       display_name="cuestion",
        num_demo_participants=1,
-       app_sequence=['survey']
+       app_sequence=['home', 'survey', 'game']
     ),
     dict(
        name='questions',
        display_name="questions",
        num_demo_participants=1,
-       app_sequence=['home', 'questions']
+       app_sequence=['home', 'questions', 'survey', 'game' ]
     ),
     dict(
        name='question',
