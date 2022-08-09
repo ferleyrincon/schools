@@ -27,9 +27,9 @@
     </p>
         
     <p> 
-        Cada problema presenta información sobre los retornos a dos inversiones: Inversión 1 e Inversión 2. Hay 6 escenarios posibles. 
+        Cada problema presenta información sobre los retornos a dos inversiones: <i>Inversión 1</i> e <i>Inversión 2</i>. En cada problema hay 6 escenarios posibles. 
         Usted debe decidir cuánto de los $20.000 que ganó por completar esta encuesta decide asignar a cada inversión. 
-        Los rendimientos a esas inversiones le serán entregados en efectivo con sus otros pagos. 
+        Los rendimientos a esas inversiones le serán entregados en efectivo con sus pagos de la apuesta del <i>Saber 11</i> en una actividad posterior. 
     </p> 
 
     <p>
@@ -65,10 +65,33 @@
         </tr>
         {% endfor %}
     </table>
-    
+    <br>
     <p>
-        
+        En la tabla anterior, se muestra el % de rendimiento por cada peso que usted asigne a cada Inversión. Por ejemplo:
+        <ul>
+            <li><b>Escenario 1:</b> por cada $10.000 que se asigne a la Inversión 1 usted podrá ganar $1.000 adicionales y por cada $10.000 que se asigne a la Inversión 2 podrá ganar $1.000 adicionales.</li>
+            <li><b>Escenario 3:</b> por cada $10.000 que se asigne a la Inversión 1 usted podrá ganar $600 adicionales y por cada $10.000 que se asigne a la Inversión 2 podrá ganar $1.000 adicionales.</li>
+            <li><b>Escenario 5:</b> por cada $10.000 que se asigne a la Inversión 1 usted podrá ganar $600 adicionales y por cada $10.000 que se asigne a la Inversión 2 podrá ganar $400 adicionales.</li>
+          </ul>
+        Cada inversión puede tener un % de rendimiento ALTO y % de rendimiento BAJO y esos porcentajes pueden variar en cada problema. 
     </p>
+    <p>
+        Para determinar sus ganancias seleccionaremos al azar <b>un problema</b> y <b>uno de los escenarios</b> para ser pagados.
+        Es como si se lanzaran dos dados: UNO para determinar el problema relevante para el pago y UNO para determinar el escenario.
+        Su ganancia adicional entonces dependerá del dinero que usted le asignó a cada inversión en el problema elegido y del escenario elegido. 
+    </p>
+
+    <h5>Quiz</h5>
+    <p>
+        Suponga que el problema seleccionado para el pago corresponde al de la Tabla mostrada arriba y al lanzar el dado virtual, el escenario que determinará el pago es el Escenario 6.<br> 
+        Teniendo en cuenta que usted asignó $20.000 a la [Inversión 1/Inversión2] Cuánto será su ganancia adicional: 
+    </p>
+    <p>
+        Suponga que el problema seleccionado para el pago corresponde al de la Tabla mostrada arriba y al lanzar el dado virtual, el escenario que determinará el pago es el Escenario 6. 
+        Teniendo en cuenta que usted asignó $10.000 a la Inversión 1 y $10.000 a la Inversión 2. Cuánto será su ganancia adicional: 
+    </p>
+
+    
    
     {% next_button %}
 

@@ -74,7 +74,10 @@ class Constants(BaseConstants):
 
 
 class Subsession(BaseSubsession):
-    pass
+    def creating_session(self):
+        if self.round_number == 1:
+            for j in self.get_players():
+                j.get_investment1()
 
 
 class Group(BaseGroup):
@@ -82,6 +85,8 @@ class Group(BaseGroup):
 
 
 class Player(BasePlayer):
+    investment1 = models.BooleanField()  #i1 o i2
+
     # Problema 1
     ## Asignacion que hace el jugador
     p1_a1   =   models.IntegerField();
@@ -142,6 +147,10 @@ class Player(BasePlayer):
     ## Pago
     p6_p    =   models.IntegerField();
 
+    def get_investment1(self):
+        self.investment1 =random.choice([True, False])
+        self.participant.vars['investment1'] =self.investment1
+        return self.investment1
 
 
 

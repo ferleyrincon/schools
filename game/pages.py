@@ -3,6 +3,15 @@ from ._builtin import Page, WaitPage
 from .models import Constants
 import random
 
+class quiz_answer(Page):
+    def is_displayed(self):
+        return self.subsession.round_number == 1
+
+    def vars_for_template(self):
+        return {
+            "camila" : self.participant.vars['camila']
+        }
+
 class decision1(Page):
     form_model = 'player'
     form_fields = ['p1_a1', 'p1_a2']
@@ -163,7 +172,8 @@ class instructions_game(Page):
 
     def vars_for_template(self):
         return{
-            "profitability": Constants.profitability[3]
+            "profitability": Constants.profitability[3],
+            "investment1" : self.participant.vars['investment1']
         }
 
 class wait(WaitPage):
