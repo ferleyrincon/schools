@@ -22,14 +22,17 @@
 {% endblock %}
 
 {% block title %}
-    Aspiraciones Educativas
+    Educación Superior
 {% endblock %}
 
 {% block content %}
 
-<p><b>Educación Superior</b></p>
 <p>
-    En una escala del 0 al 100, donde <b>0</b> es "no voy a continuar estudiando" y <b>100</b> es "con toda seguridad voy a ingresar a un programa de Educación superior", por favor díganos ¿qué tan probable es que el próximo año ingrese a un programa de Educación Superior?
+    En una escala del 0 al 100, donde <b>0</b> es "no voy a continuar estudiando" y <b>100</b> es "con toda seguridad voy a ingresar a un programa de Educación superior", 
+    por favor díganos ¿Qué tan probable es que el próximo año ingrese a un programa de Educación Superior?
+</p>
+<p>
+    Haga <i>clic</i> sobre la línea y luego mueva el recuadro para elegir un número entre 0 y 100.
 </p>
 
 <!--slider --> 
@@ -46,12 +49,12 @@
                         <td class="text_slider"><b id="d_pb"></b></td>
                     </tr>
                     <tr>
-                        <td class="td_text_slider"><br>No voy a <br> continuar estudiando</td>
+                        <td class="td_text_slider">No voy a <br> continuar estudiando</td>
                         <td class="td_slider">
                             <input type="range" name="educsup" value="" min="0" max="100" step="1" id="educsup" class="slider_efficacy" required>
                             <input type="hidden" name="check_slider_educsup" value="" id="id_check_slider_educsup" required>
                         </td>
-                        <td class="td_text_slider"><br>Con toda seguridad <br> voy a ingresar a <br> un programa de <br> Educación superior</td>
+                        <td class="td_text_slider">Con toda seguridad <br> voy a ingresar a <br> un programa de <br> Educación superior</td>
                     </tr>
                 </table>
             </div>

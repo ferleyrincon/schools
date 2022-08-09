@@ -105,6 +105,9 @@ class icfes_s2(Page):
 class instructions_transitions(Page):
     pass
 
+class instructions_icfes(Page):
+    pass
+
 class transition1(Page):
     form_model = 'player'
     form_fields = ['l_study', 'l_militar', 'l_worker', 'l_selfemployed', 'l_nonwage', 'l_nini']
@@ -168,6 +171,6 @@ random.shuffle(transitions)
 for t in transitions:
     page_sequence.append(t)
 
-for t in [icfes_m1, icfes_m2, icfes_l1, icfes_l2, icfes_n1, icfes_n2, icfes_s1, icfes_s2]:
+for t in [instructions_icfes, icfes_m1, icfes_m2, icfes_l1, icfes_l2, icfes_s1, icfes_s2, icfes_n1, icfes_n2]:
     page_sequence.append(t)
 

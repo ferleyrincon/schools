@@ -102,3 +102,47 @@ class Player(BasePlayer):
     ## Pago
     p2_p    =   models.IntegerField();
 
+    # Problema 3
+    ## Asignacion que hace el jugador
+    p3_a1   =   models.IntegerField();
+    p3_a2   =   models.IntegerField();
+    ## Rentabilidad
+    p3_r1   =   models.IntegerField();
+    p3_r2   =   models.IntegerField();
+    ## Pago
+    p3_p    =   models.IntegerField();
+
+    # Problema 4
+    ## Asignacion que hace el jugador
+    p4_a1   =   models.IntegerField();
+    p4_a2   =   models.IntegerField();
+    ## Rentabilidad
+    p4_r1   =   models.IntegerField();
+    p4_r2   =   models.IntegerField();
+    ## Pago
+    p4_p    =   models.IntegerField();
+
+    # Problema 5
+    ## Asignacion que hace el jugador
+    p5_a1   =   models.IntegerField();
+    p5_a2   =   models.IntegerField();
+    ## Rentabilidad
+    p5_r1   =   models.IntegerField();
+    p5_r2   =   models.IntegerField();
+    ## Pago
+    p5_p    =   models.IntegerField();
+
+    # Problema 6
+    ## Asignacion que hace el jugador
+    p6_a1   =   models.IntegerField();
+    p6_a2   =   models.IntegerField();
+    ## Rentabilidad
+    p6_r1   =   models.IntegerField();
+    p6_r2   =   models.IntegerField();
+    ## Pago
+    p6_p    =   models.IntegerField();
+
+
+
+
+
