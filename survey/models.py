@@ -151,14 +151,24 @@ class Player(BasePlayer):
         [2, 'No'],
     ], label="1. ¿Ha participado antes en alguna actividad de orientación vocacional/profesional?")
 
+    p_preicfes = models.IntegerField(
+    choices=[
+        [1, 'Sí'],
+        [2, 'Sí, en el colegio y NO tuve que pagar'],
+        [3, 'Sí, en el colegio y tuve que pagar'],
+        [4, 'Sí, fuera del colegio y NO tuve que pagar'],
+        [5, 'Sí, fuera del colegio y tuve que pagar'],
+
+    ], label="2. ¿Ha participado antes en alguna actividad de preparación para el Saber 11 (pre-icfes)?")
+
     p_sex = models.IntegerField(
     choices=[
         [1, 'Hombre'],
         [2, 'Mujer'],
         [3, 'Otro'],
-    ], label="2. ¿Cuál es su sexo?")
+    ], label="3. ¿Cuál es su sexo?")
 
-    p_age = models.IntegerField(label="3. Edad")
+    p_age = models.IntegerField(label="4. Edad")
 
     p_work = models.IntegerField(
     choices=[
@@ -169,9 +179,9 @@ class Player(BasePlayer):
         [5, 'Sí, para ganar dinero para mis gastos'],
         [6, 'Sí, para hacer contactos que podrían llevarle a encontrar un trabajo. '],
         [7, 'Sí, por otra razón '],
-    ], label="4. ¿Ha trabajado y estudiado al mismo tiempo? ¿Cuál fue su motivo principal para trabajar mientras estudiaba?")
+    ], label="5. ¿Ha trabajado y estudiado al mismo tiempo? ¿Cuál fue su motivo principal para trabajar mientras estudiaba?")
 
-    p_hwork = models.IntegerField(label="5. ¿Cuántas horas trabajó usted durante la semana pasada?")
+    p_hwork = models.IntegerField(min=0, max=48, label="6. ¿Cuántas horas trabajó usted durante la semana pasada? (puede escribir 0)")
 
     p_wage = models.IntegerField(
     choices=[
@@ -179,9 +189,9 @@ class Player(BasePlayer):
         [2, 'Si, en efectivo.'],
         [3, 'Si, en especie.'],
         [4, 'Si, en efectivo y especie.'],
-    ], label="6. ¿Usted recibe algún tipo de remuneración por trabajar?")
+    ], label="7. ¿Usted recibe algún tipo de remuneración por trabajar?")
 
-    p_wage = models.IntegerField(
+    p_desertion = models.IntegerField(
     choices=[
         [1, 'No.'],
         [2, 'Sí, por dificultades académicas.'],
@@ -190,7 +200,7 @@ class Player(BasePlayer):
         [5, 'Sí, por falta de interés en estudiar.'],
         [6, 'Sí, por razones económicas.'],
         [7, 'Sí, por razones de seguridad (nivel de violencia en la zona).'],
-    ], label="7. ¿Alguna vez tuvo que suspender sus estudios?")
+    ], label="8. ¿Alguna vez tuvo que suspender sus estudios?")
 
     p_years = models.IntegerField(
     choices=[
@@ -201,28 +211,34 @@ class Player(BasePlayer):
         [5, 'Sí, no me interesaban los temas.'],
         [6, 'Sí, por razones económicas.'],
         [7, 'Sí, tenía poco tiempo después del colegio para estudiar.'],
-    ], label="8. ¿Ha reprobado algún año?")
-
-    p_family = models.IntegerField(min=0, max=15, label="9.	¿Cuántas personas conforman el hogar donde vive actualmente, incluido usted? ")
-
-    p_rooms = models.IntegerField(min=0, max=10, label="10.	En total, ¿en cuántos cuartos duermen las personas de su hogar?")
+        [8, 'Sí, por razones de seguridad (nivel de violencia en la zona).']
+    ], label="9. ¿Ha reprobado algún año?")
 
     p_internet = models.IntegerField(
     choices=[
         [1, 'No.'],
-        [2, 'Sí, hay un teléfono móvil con datos.'],
-        [3, 'Sí, hay un computador portátil con conexión a internet.'],
-        [4, 'Sí, hay un computador de escritorio con conexión a internet.'],
-    ], label="11. ¿En su hogar cuenta con acceso o conexión a internet?")
+        [2, 'Sí, al menos un teléfono móvil con datos.'],
+        [3, 'Sí, un computador portátil con conexión a internet.'],
+        [4, 'Sí, un computador de escritorio con conexión a internet.'],
+    ], label="10. ¿En su hogar cuenta con acceso o conexión a internet?")
 
     p_tinternet = models.IntegerField(
     choices=[
-        [1, 'No usa internet'],
+        [1, 'No Navega en Internet'],
         [2, '30 minutos o menos'],
         [3, 'Entre 30 y 60 minutos'],
         [4, 'Entre 1 y 3 horas'],
         [5, 'Más de 3 horas'],
-    ], label="12. Usualmente, ¿cuánto tiempo al DÍA dedica a navegar en internet?")
+    ], label="11. Usualmente, ¿cuánto tiempo al DÍA dedica a navegar en internet?")
+
+    p_care = models.IntegerField(
+    choices=[1, 2, 3, 4, 5],
+    widget=widgets.RadioSelectHorizontal,
+    label="12. De 1 (nada) a 5 (completamente), ¿qué tanto cree que ayudar en su casa dificulta su proceso de aprendizaje?")
+
+    p_family = models.IntegerField(min=0, max=15, label="13.	¿Cuántas personas conforman el hogar donde vive actualmente, incluido usted? ")
+
+    p_rooms = models.IntegerField(min=0, max=10, label="14.	En total, ¿en cuántos cuartos duermen las personas de su hogar?")
 
     p_poverty = models.IntegerField(
     choices=[
@@ -230,12 +246,7 @@ class Player(BasePlayer):
         [2, 'Buenas'],
         [3, 'Regulares'],
         [4, 'Malas'],
-    ], label="13. ¿Cómo describiría las condiciones económicas de su hogar?")
-
-    p_care = models.IntegerField(
-    choices=[1, 2, 3, 4, 5],
-    widget=widgets.RadioSelect,
-    label="14. De 1 a 5, ¿qué tanto cree que ayudar en su casa dificulta su proceso de aprendizaje?")
+    ], label="15. ¿Cómo describiría las condiciones económicas de su hogar?")
 
     p_migration = models.IntegerField(
     choices=[
@@ -245,13 +256,13 @@ class Player(BasePlayer):
         [4, 'Sí, por salud.'],
         [5, 'Sí, por las condiciones de seguridad.'],
         [6, 'Sí, otra razón.'],
-    ], label="15. El siguiente año, ¿cree que se va vivir a otro municipio?")
+    ], label="16. El siguiente año, ¿cree que se va a ir a vivir a otro municipio?")
 
     p_health = models.IntegerField(
     choices=[
         [1,'Subsidiado'],
         [2,'Contributivo (incluye regímenes especiales)']
-    ], label="16. ¿A qué régimen de seguridad social en salud pertenece?")
+    ], label="17. ¿A qué régimen de seguridad social en salud pertenece?")
 
     p_pension2 = models.IntegerField(
     choices=[
@@ -262,17 +273,42 @@ class Player(BasePlayer):
         [5,'Pagando un seguro por su cuenta'],
         [6,'Preparando a los hijos para que puedan ayudarlos en su vejez'],
         [7,'Nada'],
-    ], label="17. ¿Qué están haciendo (hicieron) sus padres para mantenerse económicamente en la vejez?")
+    ], label="18. ¿Qué están haciendo (hicieron) sus padres para mantenerse económicamente en la vejez?")
 
-    p_preicfes = models.IntegerField(
+    ocu_mother = models.IntegerField(
     choices=[
-        [1, 'Sí'],
-        [2, 'Sí, en el colegio y NO tuve que pagar'],
-        [3, 'Sí, en el colegio y tuve que pagar'],
-        [4, 'Sí, fuera del colegio y NO tuve que pagar'],
-        [5, 'Sí, fuera del colegio y tuve que pagar'],
+        [1,'Empleada con cargo como director o gerente general'],
+        [2,'Empleada de nivel auxiliar o administrativo'],
+        [3,'Empleada de nivel directivo'],
+        [4,'Empleada de nivel técnico o profesional'],
+        [5,'Empleada obrera u operaria'],
+        [6,'Empresaria'],
+        [7,'Pequeña empresaria'],
+        [8,'Profesional independiente'],
+        [9,'Trabajadora por cuenta propia'],
+        [10,'Hogar'],
+        [11,'Pensionada'],
+        [12,'Desempleada'],
+        [13,'Otra actividad u ocupación'],
+    ], label="19. Ocupación u oficio de la madre")
 
-    ], label="16. ¿Ha participado antes en alguna actividad de preparación para el Saber 11 (pre-icfes)?")
+    ocu_father = models.IntegerField(
+    choices=[
+        [1,'Empleado con cargo como director o gerente general'],
+        [2,'Empleado de nivel auxiliar o administrativo'],
+        [3,'Empleado de nivel directivo'],
+        [4,'Empleado de nivel técnico o profesional'],
+        [5,'Empleado obrero u operario'],
+        [6,'Empresario'],
+        [7,'Pequeño empresario'],
+        [8,'Profesional independiente'],
+        [9,'Trabajador por cuenta propia'],
+        [10,'Hogar'],
+        [11,'Pensionado'],
+        [12,'Desempleado'],
+        [13,'Otra actividad u ocupación'],
+    ], label="20. Ocupación u oficio del padre")
+
 
     icfes_m1 = models.StringField(choices=['A', 'B', 'C', 'D'], widget=widgets.RadioSelectHorizontal, label="Seleccione solo UNA respuesta:")
     icfes_m2 = models.StringField(choices=['A', 'B', 'C', 'D'], widget=widgets.RadioSelectHorizontal, label="Seleccione solo UNA respuesta:")

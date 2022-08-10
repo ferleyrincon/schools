@@ -24,7 +24,7 @@ SESSION_CONFIGS = [
        name='pruebas',
        display_name="pruebas",
        num_demo_participants=1,
-       app_sequence=['question']
+       app_sequence=['survey']
     ),
 ]
 

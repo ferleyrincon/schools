@@ -1,0 +1,18 @@
+{% extends "global/Page.html" %}
+{% load otree static %}
+
+{% block title %}
+Encuesta final
+{% endblock %}
+
+{% block styles %}
+<link href="{% static 'parents/css/custom.css' %}" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+
+{% formfields %}
+
+{% next_button %}
+
+{% endblock %}
