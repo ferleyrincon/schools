@@ -9,7 +9,10 @@ class quiz_answer(Page):
 
     def vars_for_template(self):
         return {
-            "camila" : self.participant.vars['camila']
+            "quiz1_1" : self.player.quiz1_1,
+            "quiz1_2" : self.player.quiz1_2,
+            "quiz2" : self.player.quiz2,
+            "investment1" : self.participant.vars['investment1']        
         }
 
 class decision1(Page):
@@ -167,6 +170,9 @@ class decision6(Page):
         }
 
 class instructions_game(Page):
+    form_model = 'player'
+    form_fields = ['quiz1_1', 'quiz1_2', 'quiz2'] 
+
     def is_displayed(self):
         return self.round_number == 1
 
@@ -188,4 +194,4 @@ class payoff(Page):
         }
 
 
-page_sequence = [instructions_game, decision1, decision2, decision3, decision4, decision5, decision6, wait, payoff]
+page_sequence = [instructions_game, quiz_answer, decision1, decision2, decision3, decision4, decision5, decision6, wait, payoff]

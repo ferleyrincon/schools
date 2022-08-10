@@ -2,70 +2,38 @@
 {% load otree static %}
 
 {% block title %}
-   Respuestas preguntas de control
+   Respuestas Quiz
 {% endblock %}
 
 {% block content %}
-<p>1. 
-{% if discrimination == 0 %}
-   {% if p_random1 == 1 %}
-   <b><font color="Green">Correcto</font></b>
+<p><b>Caso 1:</b> 
+{% if investment1 == 1 %}
+   {% if quiz1_1 == 2000 %}
+      <b><font color="Green">Correcto</font></b>
    {% else %}
-   <b><font color="Red">Incorrecto</font></b>
+      <b><font color="Red">Incorrecto</font></b>
    {% endif %}
-   <br>Si usted hace 6 secuencias, y los otros participantes hace 4 secuencias cada uno, su probabilidad de tener el <i>Contrato A</i> en la siguiente ronda es: <b>50%</b>. <br> 
-   Recuerde: <i>La probabilidad de cambiar de contrato es la misma para todos los participantes (50%).</i> 
-   Es igual de probable que reciba el Contrato A o el Contrato B. 
+   <br>La ganancia adicional será de $2.000 [$20.000 x 10%]<br> 
+   Recuerde: <i>La rentabilidad de la <i>Inversión 1</i> en el <i>Escenario 6</i> es del 10%.</i>  
 {% else %}
-   {% if discrimination == 1 %}
-      {% if p_perfect1 == 1 %}
+   {% if quiz2_1 == 800 %}
       <b><font color="Green">Correcto</font></b>
-      {% else %}
-      <b><font color="Red">Incorrecto</font></b>
-      {% endif %}
-      <br>Si usted hace 6 secuencias, y el otro participante en la <i>Reclasificación</i> hace 4 secuencias, su probabilidad de tener el <i>Contrato A</i> en la siguiente ronda es: <b>100%</b>. <br>
-      Recuerde: <i>Se queda con el Contrato A el que haya completado más secuencias entre los participantes en la Reclasificación.</i>
    {% else %}
-      {% if p_noisy1 == 1 %}
-      <b><font color="Green">Correcto</font></b>
-      {% else %}
       <b><font color="Red">Incorrecto</font></b>
-      {% endif %}
-      <br>Si usted hace 6 secuencias, y el otro participante en la <i>Reclasificación</i> hace 4 secuencias, su probabilidad de tener el Contrato A en la siguiente ronda es: <b>60%</b>. <br> 
-      Recuerde: <i>Quedarse con el <i>Contrato A</i> depende de un sorteo. 
-      Entre más secuencias correctas respecto a las del otro participante en la Reclasificación, más chances de ganar</i>. 
    {% endif %}
+   <br>La ganancia adicional será de $800 [$20.000 x 4%]<br> 
+   Recuerde: <i>La rentabilidad de la <i>Inversión 2</i> en el <i>Escenario 6</i> es del 4%.</i>  
 {% endif %}
 </p>
 
-<p>2.
-   {% if discrimination == 0 %}
-      {% if p_random2 == 1 %}
+<p><b>Caso 2:</b>
+   {% if quiz2 == 1400 %}
       <b><font color="Green">Correcto</font></b>
-      {% else %}
-      <b><font color="Red">Incorrecto</font></b>
-      {% endif %}
-      <br>Si usted hace 6 secuencias, y los otros participantes hace 6 secuencias cada uno, su probabilidad de tener el Contrato A en la siguiente ronda es: <b>50%</b>.<br>
-      Recuerde: <i>La probabilidad quedarse con el Contrato A es la misma para todos los participantes (50%)</i>. 
-{% else %}
-   {% if discrimination == 1 %}
-      {% if p_perfect2 == 1 %}
-      <b><font color="Green">Correcto</font></b>
-      {% else %}
-      <b><font color="Red">Incorrecto</font></b>
-      {% endif %}
-      <br>Si usted hace 6 secuencias, y el otro participante en la <i>Reclasificación</i> hace 6 secuencias, su probabilidad de tener el Contrato A en la siguiente ronda es: <b>50%</b>.<br>
-      Recuerde: <i>La probabilidad quedarse con el Contrato A es la misma para ambos los participantes (50%)</i>. 
    {% else %}
-      {% if p_noisy2 == 1 %}
-      <b><font color="Green">Correcto</font></b>
-      {% else %}
       <b><font color="Red">Incorrecto</font></b>
-      {% endif %}
-      <br>Si usted hace 6 secuencias, y el otro participante en la <i>Reclasificación</i> hace 6 secuencias, su probabilidad de tener el Contrato A en la siguiente ronda es: <b>50%</b>.<br>
-      Recuerde: <i>La probabilidad quedarse con el Contrato A es la misma para ambos los participantes (50%)</i>. 
    {% endif %}
-{% endif %}
+   <br>La ganancia adicional será de $1.400 [$10.000 x 10% + $10.000 x 4%]<br> 
+   Recuerde: <i>La rentabilidad de la <i>Inversión 1</i> en el <i>Escenario 6</i> es del 10% y de la <i>Inversión 2</i> en el <i>Escenario 6</i> es del 4%.</i>  
 </p>
 
 {% next_button %}

@@ -6,25 +6,25 @@ SESSION_CONFIGS = [
        name='cuestion',
        display_name="cuestion",
        num_demo_participants=1,
-       app_sequence=['home', 'survey', 'game']
+       app_sequence=['home', 'survey']
     ),
     dict(
        name='questions',
        display_name="questions",
        num_demo_participants=1,
-       app_sequence=['home', 'questions', 'survey', 'game' ]
+       app_sequence=['home', 'questions', 'survey']
     ),
     dict(
        name='question',
        display_name="question",
        num_demo_participants=1,
-       app_sequence=['home', 'question', 'survey', 'game' ]
+       app_sequence=['home', 'question', 'survey' ]
     ),
     dict(
-       name='game',
-       display_name="game",
+       name='pruebas',
+       display_name="pruebas",
        num_demo_participants=1,
-       app_sequence=['game']
+       app_sequence=['question']
     ),
 ]
 

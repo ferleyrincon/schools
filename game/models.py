@@ -8,7 +8,9 @@ from otree.api import (
     Currency as c,
     currency_range,
 )
-
+import numpy as np
+import random
+import json
 
 author = 'Your name here'
 
@@ -146,6 +148,10 @@ class Player(BasePlayer):
     p6_r2   =   models.IntegerField();
     ## Pago
     p6_p    =   models.IntegerField();
+
+    quiz1_1 = models.IntegerField(blank=9, min=0, max=20000, label="Cuánto será su ganancia adicional:")
+    quiz1_2 = models.IntegerField(blank=9, min=0, max=20000, label="Cuánto será su ganancia adicional:")
+    quiz2   = models.IntegerField(blank=9, min=0, max=20000, label="Cuánto será su ganancia adicional:")
 
     def get_investment1(self):
         self.investment1 =random.choice([True, False])
