@@ -171,7 +171,7 @@ class questions2(Page):
 class thanks(Page):
     pass
 
-page_sequence = [thanks, occupation2, saber11, education, selfefficacy, barriers, income, instructions_transitions]
+page_sequence = [occupation2, saber11, education, selfefficacy, barriers, income, instructions_transitions]
 
 #
 
@@ -181,6 +181,6 @@ random.shuffle(transitions)
 for t in transitions:
     page_sequence.append(t)
 
-for t in [instructions_icfes, icfes_m1, icfes_m2, icfes_l1, icfes_l2, icfes_s1, icfes_s2, icfes_n1, icfes_n2, questions1, questions2]:
+for t in [instructions_icfes, icfes_m1, icfes_m2, icfes_l1, icfes_l2, icfes_s1, icfes_s2, icfes_n1, icfes_n2, questions1, questions2, thanks]:
     page_sequence.append(t)
 

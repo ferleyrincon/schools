@@ -2,7 +2,7 @@ from os import environ
 import os
 
 SESSION_CONFIGS = [
-       dict(
+   dict(
        name='cuestion',
        display_name="cuestion",
        num_demo_participants=1,
