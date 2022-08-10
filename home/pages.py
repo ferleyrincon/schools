@@ -28,4 +28,4 @@ class occupation(Page):
         return self.round_number == 1
 
 
-page_sequence = [consent, welcome, occupation]
+page_sequence = [consent, welcome]

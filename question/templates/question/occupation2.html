@@ -1,6 +1,103 @@
 {% extends "global/Page.html" %}
 {% load otree static %}
 
+{% block scripts %}
+    <script>
+        var timeInit = Date.now();
+
+        $(document).ready(function () {
+            formulario = document.getElementById("form");
+        });
+
+        $('#td_occupation_1').click(function(event) {
+            var occupation_1 = document.getElementById('occupation_1');
+            var occupation_2 = document.getElementById('occupation_2');
+            var occupation_3 = document.getElementById('occupation_3');
+            var time_init_occupation = document.getElementById('time_init_occupation');
+            if((occupation_1.value === "") && (occupation_1.disabled === true) && (occupation_2.disabled === true) && (occupation_3.disabled === true)){
+                occupation_1.disabled = false;
+                time_init_occupation.value = (Date.now() - timeInit)/1000;
+                timeInit = Date.now();
+            }
+        });
+
+        $('#td_occupation_2').click(function(event) {
+            var occupation_1 = document.getElementById('occupation_1');
+            var occupation_2 = document.getElementById('occupation_2');
+            var occupation_3 = document.getElementById('occupation_3');
+            var time_occupation_1 = document.getElementById('time_occupation_1');
+            if((occupation_2.value === "") && (occupation_1.disabled === false) && (occupation_2.disabled === true) && (occupation_3.disabled === true) && (occupation_1.value != "")){
+                occupation_1.disabled = true;
+                occupation_2.disabled = false;
+                time_occupation_1.value = (Date.now() - timeInit)/1000;
+                timeInit = Date.now();
+            }
+        });
+
+        $('#td_occupation_3').click(function(event) {
+            var occupation_1 = document.getElementById('occupation_1');
+            var occupation_2 = document.getElementById('occupation_2');
+            var occupation_3 = document.getElementById('occupation_3');
+            var time_occupation_2 = document.getElementById('time_occupation_2');
+            if((occupation_3.value === "") && (occupation_1.disabled === true) && (occupation_2.disabled === false) && (occupation_3.disabled === true) && (occupation_2.value != "")){
+                occupation_2.disabled = true;
+                occupation_3.disabled = false;
+                time_occupation_2.value = (Date.now() - timeInit)/1000;
+                timeInit = Date.now();
+                document.getElementById('siguiente').style.display = "block";
+            }
+        });
+
+        function enviar() {
+            var occupation_1 = document.getElementById('occupation_1');
+            var occupation_2 = document.getElementById('occupation_2');
+            var occupation_3 = document.getElementById('occupation_3');
+            var time_occupation_3 = document.getElementById('time_occupation_3');
+            time_occupation_3.value = (Date.now() - timeInit)/1000;
+            occupation_1.disabled = false;
+            occupation_2.disabled = false;
+            occupation_3.disabled = false;
+            formulario.submit();
+        }
+    </script> 
+
+    <style>
+    .btn_next {
+        cursor: pointer;
+        display: none;
+        color: #ffffff;
+        background-color: #007bff;
+        border-color: #007bff;
+        font-weight: 400;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: middle;
+        user-select: none;
+        border: 1px solid transparent;
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        line-height: 1.5;
+        border-radius: 0.25rem;
+        transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+        position: absolute;
+        width: 8vw;
+        left: 46vw;
+    }
+
+    .btn_next:hover {
+        background-color: #0069d9;
+        border-color: #0069d9;
+    }
+
+    .input_number {
+        text-align: left;
+        height: 33px;
+        width: 400px;
+        padding: 3px 5px;
+    }
+    </style>
+{% endblock %}
+
 {% block title %}
     Aspiraciones ocupacionales
 {% endblock %}
@@ -8,8 +105,40 @@
 {% block content %}
 <p>Teniendo en cuenta la actividad anterior por favor haga nuevamente una lista de 3 <i>profesiones</i>, <i>oficios</i> u <i>ocupaciones</i> que considere ideales para usted.<br>
 Escríbalas en orden de importancia, donde <b>1</b> significa que "es lo que más me le gustaría hacer" y <b>3</b> significa que "es la que menos le gustaría hacer":</p>  
+<p> Haga <i>clic</i> encima de cada recuadro para poder activarlo y escribir su respuesta. Después de ingresada no puede modificarla así que piénsela bien. Debe llenarlos en orden.</p>
 
+<input type="hidden" class="input_hidden" name="time_init_occupation" id="time_init_occupation" value="" required>
 
-    {% next_button %}
+<table>
+    <tr style="padding: 3px;">
+        <td style="padding: 5px 7px; text-align: right;">
+            <b>1.</b>
+        </td>
+        <td id="td_occupation_1" style="padding: 5px 7px;">
+            <input type="text" class="input_number" name="occupation_1" id="occupation_1" value="" disabled required>
+            <input type="hidden" class="input_hidden" name="time_occupation_1" id="time_occupation_1" value="" required>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 5px 7px; text-align: right;">
+            <b>2.</b>
+        </td>
+        <td id="td_occupation_2" style="padding: 5px 7px;">
+            <input type="text" class="input_number" name="occupation_2" id="occupation_2" value="" disabled required>
+            <input type="hidden" class="input_hidden" name="time_occupation_2" id="time_occupation_2" value="" required>
+        </td>
+    </tr>
+    <tr>
+        <td style="padding: 5px 7px; text-align: right;">
+            <b>3.</b>
+        </td>
+        <td id="td_occupation_3" style="padding: 5px 7px;">
+            <input type="text" class="input_number" name="occupation_3" id="occupation_3" value="" disabled required>
+            <input type="hidden" class="input_hidden" name="time_occupation_3" id="time_occupation_3" value="" required>
+        </td>
+    </tr>
+</table>
+
+<input type="button" value="Siguiente" id="siguiente" class="btn_next" onclick="enviar()">
 
 {% endblock %}
